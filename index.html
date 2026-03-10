@@ -115,11 +115,7 @@
       background: var(--green);
       border-radius: 50%;
       flex-shrink: 0;
-      animation: blink 2.2s ease-in-out infinite;
-    }
-    @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50%       { opacity: 0.25; }
+      opacity: 1;
     }
 
     .hero h1 {
@@ -182,15 +178,28 @@
     .card:hover {
       transform: translateY(-2px);
       box-shadow: 0 10px 36px rgba(0,0,0,0.45);
+      cursor: pointer;
     }
     .card.green-border { border-left: 3px solid var(--green); }
     .card.amber-border { border-left: 3px solid #F59E0B; }
 
-    .card-emoji {
-      font-size: 24px;
-      line-height: 1;
+    .card-icon-wrap {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       flex-shrink: 0;
-      margin-top: 2px;
+    }
+    .card-icon-wrap svg { width: 20px; height: 20px; }
+    .card-icon-wrap.c-green {
+      background: rgba(57,255,20,0.10);
+      color: var(--green);
+    }
+    .card-icon-wrap.c-amber {
+      background: rgba(245,158,11,0.10);
+      color: #F59E0B;
     }
     .card-body h3 {
       font-family: 'Space Grotesk', sans-serif;
@@ -417,6 +426,13 @@
     /* ────────────────────────────────────────
        RESPONSIVE
     ──────────────────────────────────────── */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
     @media (max-width: 440px) {
       .container   { padding: 36px 16px 80px; }
       .form-card   { padding: 26px 20px; }
@@ -473,21 +489,34 @@
     <!-- ── Benefit Cards ── -->
     <section class="benefits" aria-label="Why Time2Eat">
       <div class="card green-border">
-        <div class="card-emoji" aria-hidden="true">✅</div>
+        <div class="card-icon-wrap c-green" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/>
+          </svg>
+        </div>
         <div class="card-body">
           <h3>See which restaurants are safe</h3>
           <p>Real data from travelers who've eaten there — not just star ratings</p>
         </div>
       </div>
       <div class="card amber-border">
-        <div class="card-emoji" aria-hidden="true">⚠️</div>
+        <div class="card-icon-wrap c-amber" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/>
+            <path d="M12 9v4"/><path d="M12 17h.01"/>
+          </svg>
+        </div>
         <div class="card-body">
           <h3>Get warnings before eating somewhere risky</h3>
           <p>Recent food poisoning reports from real travelers surface before you order</p>
         </div>
       </div>
       <div class="card green-border">
-        <div class="card-emoji" aria-hidden="true">💚</div>
+        <div class="card-icon-wrap c-green" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+          </svg>
+        </div>
         <div class="card-body">
           <h3>Help other travelers avoid getting sick</h3>
           <p>Your 1-minute check-in could save the next person three days in bed</p>
@@ -521,7 +550,10 @@
             Reserve My Spot
           </button>
 
-          <p class="signup-count">🔒 Join 200+ travelers already on the waitlist</p>
+          <p class="signup-count">
+            <svg style="display:inline;vertical-align:middle;margin-right:5px;opacity:0.6;" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            Join 200+ travelers already on the waitlist
+          </p>
 
           <div class="error-msg" id="error-msg" role="alert"></div>
         </form>
