@@ -138,6 +138,27 @@
       margin: 0 auto;
     }
 
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 28px;
+      padding: 13px 28px;
+      background: transparent;
+      border: 1.5px solid var(--green);
+      color: var(--green);
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600;
+      font-size: 15px;
+      border-radius: 100px;
+      text-decoration: none;
+      transition: background 0.2s ease, box-shadow 0.2s ease;
+    }
+    .hero-cta:hover {
+      background: rgba(57,255,20,0.09);
+      box-shadow: 0 0 22px rgba(57,255,20,0.28);
+    }
+
     /* ────────────────────────────────────────
        BENEFIT CARDS
     ──────────────────────────────────────── */
@@ -368,6 +389,13 @@
     /* ────────────────────────────────────────
        FOOTER
     ──────────────────────────────────────── */
+    .signup-count {
+      text-align: center;
+      margin-top: 14px;
+      font-size: 13px;
+      color: var(--gray);
+    }
+
     .social-proof {
       text-align: center;
       margin-top: 26px;
@@ -438,7 +466,8 @@
         Now in early access
       </div>
       <h1>Friends don't let other<br>friends get sick</h1>
-      <p>Know what's safe to eat, wherever you travel</p>
+      <p>Real check-ins from travelers who ate there — so you know what's safe before you order</p>
+      <a class="hero-cta" href="#waitlist">Reserve My Spot ↓</a>
     </section>
 
     <!-- ── Benefit Cards ── -->
@@ -467,9 +496,9 @@
     </section>
 
     <!-- ── Waitlist Form ── -->
-    <div class="form-card">
+    <div class="form-card" id="waitlist">
       <h2>Get early access</h2>
-      <p class="form-subtitle">Be the first to know when we launch in your area.</p>
+      <p class="form-subtitle">Drop your email and we'll notify you when we launch in your city.</p>
 
       <!-- Form wrapper fades out on success -->
       <div id="form-wrapper">
@@ -488,23 +517,11 @@
             />
           </div>
 
-          <div class="form-group">
-            <span class="field-label" id="bali-question">Currently traveling?</span>
-            <div class="radio-group" role="radiogroup" aria-labelledby="bali-question">
-              <div class="radio-option yes-opt">
-                <input type="radio" id="in-bali-yes" name="in_bali" value="yes" />
-                <label class="radio-label" for="in-bali-yes">✈️ Yes, I'm traveling</label>
-              </div>
-              <div class="radio-option no-opt">
-                <input type="radio" id="in-bali-no" name="in_bali" value="no" checked />
-                <label class="radio-label" for="in-bali-no">🏠 Not right now</label>
-              </div>
-            </div>
-          </div>
-
           <button type="submit" class="submit-btn" id="submit-btn">
-            Join Waitlist
+            Reserve My Spot
           </button>
+
+          <p class="signup-count">🔒 Join 200+ travelers already on the waitlist</p>
 
           <div class="error-msg" id="error-msg" role="alert"></div>
         </form>
@@ -554,8 +571,7 @@
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
 
-      const email  = document.getElementById('email').value.trim();
-      const inBali = document.querySelector('input[name="in_bali"]:checked')?.value === 'yes';
+      const email = document.getElementById('email').value.trim();
 
       // Client-side email validation
       if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
@@ -569,7 +585,7 @@
       try {
         const { error } = await db
           .from('waitlist')
-          .insert([{ email, in_bali: inBali }]);
+          .insert([{ email }]);
 
         if (error) {
           // Unique constraint — email already on waitlist
@@ -593,7 +609,7 @@
     // ─────────────────────────────────────────────────────────────
     function setLoading(loading) {
       submitBtn.disabled    = loading;
-      submitBtn.textContent = loading ? 'Joining…' : 'Join Waitlist';
+      submitBtn.textContent = loading ? 'Reserving…' : 'Reserve My Spot';
     }
 
     function showError(msg) {
