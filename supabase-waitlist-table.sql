@@ -23,3 +23,11 @@ create policy "Admins can read waitlist"
   for select
   to authenticated
   using (true);
+
+-- ── UTM tracking columns (run this migration if table already exists) ──
+alter table public.waitlist
+  add column if not exists utm_source   text,
+  add column if not exists utm_medium   text,
+  add column if not exists utm_campaign text,
+  add column if not exists utm_content  text,
+  add column if not exists utm_term     text;

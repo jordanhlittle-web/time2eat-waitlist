@@ -589,6 +589,24 @@
     const db = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
     // ─────────────────────────────────────────────────────────────
+    //  UTM capture — read from URL, persist in sessionStorage
+    // ─────────────────────────────────────────────────────────────
+    const UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
+    const params = new URLSearchParams(window.location.search);
+    UTM_KEYS.forEach(key => {
+      if (params.get(key)) sessionStorage.setItem(key, params.get(key));
+    });
+
+    function getUtms() {
+      const utms = {};
+      UTM_KEYS.forEach(key => {
+        const val = sessionStorage.getItem(key);
+        if (val) utms[key] = val;
+      });
+      return utms;
+    }
+
+    // ─────────────────────────────────────────────────────────────
     //  DOM references
     // ─────────────────────────────────────────────────────────────
     const form        = document.getElementById('waitlist-form');
@@ -617,7 +635,7 @@
       try {
         const { error } = await db
           .from('waitlist')
-          .insert([{ email }]);
+          .insert([{ email, ...getUtms() }]);
 
         if (error) {
           // Unique constraint — email already on waitlist
