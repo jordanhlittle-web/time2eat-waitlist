@@ -451,21 +451,13 @@
 
     <!-- ── Logo ── -->
     <div class="logo">
-      <!--
-        Fork + Knife SVG (Lucide "utensils" adapted)
-        Fork: three-tine fork with handle
-        Knife: curved blade with handle
-        Both in magenta (#FF00FF)
-      -->
       <svg class="logo-icon" viewBox="0 0 24 24" fill="none"
            xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <!-- Fork body (tines + handle) -->
         <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"
               stroke="#FF00FF" stroke-width="2"
               stroke-linecap="round" stroke-linejoin="round"/>
         <line x1="7" y1="11" x2="7" y2="22"
               stroke="#FF00FF" stroke-width="2" stroke-linecap="round"/>
-        <!-- Knife blade + handle -->
         <path d="M21 2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3V2z"
               stroke="#FF00FF" stroke-width="2"
               stroke-linecap="round" stroke-linejoin="round"/>
@@ -529,7 +521,6 @@
       <h2>Get early access</h2>
       <p class="form-subtitle">Drop your email and we'll notify you when we launch in your city.</p>
 
-      <!-- Form wrapper fades out on success -->
       <div id="form-wrapper">
         <form id="waitlist-form" novalidate>
 
@@ -559,7 +550,6 @@
         </form>
       </div>
 
-      <!-- Success state (hidden until submission) -->
       <div class="success-state" id="success-state" role="status" aria-live="polite">
         <span class="success-rocket" aria-hidden="true">🚀</span>
         <h3>You're on the list!</h3>
@@ -578,19 +568,14 @@
   </footer>
 
   <script>
-    // ─────────────────────────────────────────────────────────────
-    //  Supabase Configuration
-    //  Credentials from /public/supabase-config.json
-    // ─────────────────────────────────────────────────────────────
     const SUPABASE_URL      = 'https://edazhagjfdpfvbygpqnq.supabase.co';
     const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVkYXpoYWdqZmRwZnZieWdwcW5xIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzEyMjMwNzIsImV4cCI6MjA4Njc5OTA3Mn0.Qlj1gjdQrLOlWTSaqolsI4k9lOiPvj126iGNprzekrw';
+    const MAILERLITE_API_KEY  = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI0IiwianRpIjoiOWQ1NjMzNGM1ZDNiYTk5YmVmNDk5Y2UzYWQ1NGFlNDNjYTkyN2M1YmJlMmI5MjEwMTE2ZWY5NWI4ZWIxMjdlOGRkODFhMDBmNzUzNDhhYzciLCJpYXQiOjE3NzM3MjU0NzcuMzM2NDY2LCJuYmYiOjE3NzM3MjU0NzcuMzM2NDY5LCJleHAiOjQ5MjkzOTkwNzcuMzI5NjIyLCJzdWIiOiIyMjE4MDA1Iiwic2NvcGVzIjpbXX0.DfEeJoHeIlcU3Y4tU5m6J86gYpQRQQQgX7iy7w0xLXWqnbS2NkIeuwSvChb9ujdn-woOfUni4LJLQQCA9UH7lybTHjR-3wihKzUkOSgkwgAsxE4xPxH1AY_YaHTu3kc5tHOzHFV8RUoY-toQ0AoRPqzuml_JIprZq9eTK-9NvJtruqECQg4jrzMGM5l52hsJyDoPmf4uAP2kNntxbkmyaKhiVKnO5aFDJFJRSq4JVpQjgjhqMA5KQw84sWNVG5-ik7plSlxuvQxJhk3VBNh0eX8fewsVPhH_bApSpxQ8dgCavDbCCMh6M9V3pLkEg8l0OMvwfWOWlhMopxCFDrwChNkhCA-rbL13Fe-6Q_PW5SgFzWti4XQjt7YaiwJfn585zNI4Z5YYM1ga8jT38m2q4FGlSTKlrXuWVKeFzXjEO1Ld7m6dQIFzTVfJXCzJfafCtZFBYnCf_IpUa--y0yvLQM9S-NPxILX9QFd7oLVwYJOvqfpMaA61I3f402dTcnUeU8rZ1QFkiZYTM05q5P494vgVgLduV5TiDz1y5ppUEOsHjalxyAA0aGEq0kvlxcgnqquPFb-OTpfF7T_W7NARvByiw61vLJYShbaL6kodJ_DaYorzQL6X83WLIMnuY-p-JZl3BasIGKmWmYwX-pUaBGFD3vPd3zWbEILKUFbhy9c';
+    const MAILERLITE_GROUP_ID = '182162954986194680';
 
     const { createClient } = supabase;
     const db = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-    // ─────────────────────────────────────────────────────────────
-    //  UTM capture — read from URL, persist in sessionStorage
-    // ─────────────────────────────────────────────────────────────
     const UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
     const params = new URLSearchParams(window.location.search);
     UTM_KEYS.forEach(key => {
@@ -606,24 +591,17 @@
       return utms;
     }
 
-    // ─────────────────────────────────────────────────────────────
-    //  DOM references
-    // ─────────────────────────────────────────────────────────────
-    const form        = document.getElementById('waitlist-form');
-    const submitBtn   = document.getElementById('submit-btn');
-    const errorMsg    = document.getElementById('error-msg');
-    const formWrapper = document.getElementById('form-wrapper');
+    const form         = document.getElementById('waitlist-form');
+    const submitBtn    = document.getElementById('submit-btn');
+    const errorMsg     = document.getElementById('error-msg');
+    const formWrapper  = document.getElementById('form-wrapper');
     const successState = document.getElementById('success-state');
 
-    // ─────────────────────────────────────────────────────────────
-    //  Form submission
-    // ─────────────────────────────────────────────────────────────
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
 
       const email = document.getElementById('email').value.trim();
 
-      // Client-side email validation
       if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
         showError('Please enter a valid email address.');
         return;
@@ -638,14 +616,21 @@
           .insert([{ email, ...getUtms() }]);
 
         if (error) {
-          // Unique constraint — email already on waitlist
           if (error.code === '23505') {
-            showSuccess(); // Still show success, no need to expose duplicate state
+            showSuccess();
           } else {
             throw error;
           }
         } else {
           showSuccess();
+          fetch('https://connect.mailerlite.com/api/subscribers', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${MAILERLITE_API_KEY}`
+            },
+            body: JSON.stringify({ email, groups: [MAILERLITE_GROUP_ID] })
+          }).catch(() => {});
         }
       } catch (err) {
         console.error('Supabase error:', err);
@@ -654,9 +639,6 @@
       }
     });
 
-    // ─────────────────────────────────────────────────────────────
-    //  Helpers
-    // ─────────────────────────────────────────────────────────────
     function setLoading(loading) {
       submitBtn.disabled    = loading;
       submitBtn.textContent = loading ? 'Reserving…' : 'Reserve My Spot';
