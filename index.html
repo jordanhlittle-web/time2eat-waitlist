@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Time2Eat — Join the Waitlist</title>
+  <title>Time2Eat, Join the Waitlist</title>
   <meta name="description" content="Know what's safe to eat, wherever you travel. Join the Time2Eat waitlist." />
 
   <!-- Fonts -->
@@ -409,7 +409,7 @@
       text-align: center;
       margin-top: 26px;
       font-size: 13px;
-      color: #4B5563;
+      color: var(--white);
     }
     .social-proof .sp-green {
       color: var(--green);
@@ -438,6 +438,91 @@
       .form-card   { padding: 26px 20px; }
       .radio-label { font-size: 13px; padding: 12px 10px; }
       .logo-wordmark { font-size: 24px; }
+    }
+
+    /* ────────────────────────────────────────
+       SCREENSHOTS
+    ──────────────────────────────────────── */
+    .screenshots {
+      margin-bottom: 48px;
+    }
+    .screenshots-label {
+      text-align: center;
+      font-size: 11.5px;
+      font-weight: 600;
+      color: #4B5563;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 20px;
+    }
+    .screenshot-strip {
+      display: flex;
+      gap: 16px;
+      overflow-x: auto;
+      padding: 0 4px 16px;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+      align-items: flex-start;
+    }
+    .screenshot-strip::-webkit-scrollbar { display: none; }
+
+    .phone-wrap {
+      flex: 0 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+    .phone-frame {
+      position: relative;
+      background: #0d0d0d;
+      border-radius: 36px;
+      padding: 30px 8px 8px;
+      box-shadow:
+        0 0 0 1.5px #2a2a2a,
+        0 0 0 3px #111,
+        0 24px 60px rgba(0,0,0,0.75);
+      width: 172px;
+    }
+    /* Dynamic island sits in the top bezel */
+    .phone-frame::before {
+      content: '';
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 54px;
+      height: 16px;
+      background: #1a1a1a;
+      border-radius: 10px;
+      z-index: 3;
+    }
+    /* Side button */
+    .phone-frame::after {
+      content: '';
+      position: absolute;
+      right: -3px;
+      top: 80px;
+      width: 3px;
+      height: 32px;
+      background: #1a1a1a;
+      border-radius: 0 2px 2px 0;
+      box-shadow: 0 48px 0 #1a1a1a;
+    }
+    .phone-screen {
+      border-radius: 14px;
+      overflow: hidden;
+    }
+    .phone-screen img {
+      width: 100%;
+      display: block;
+    }
+    .phone-label {
+      font-size: 11px;
+      font-weight: 500;
+      color: #4B5563;
+      text-align: center;
+      letter-spacing: 0.04em;
     }
   </style>
 </head>
@@ -474,8 +559,35 @@
         Now in early access
       </div>
       <h1>Friends don't let other<br>friends get sick</h1>
-      <p>Real check-ins from travelers who ate there — so you know what's safe before you order</p>
+      <p>Real check-ins from travelers who ate there, so you know what's safe before you order</p>
       <a class="hero-cta" href="#waitlist">Reserve My Spot ↓</a>
+    </section>
+
+    <!-- ── Screenshots ── -->
+    <section class="screenshots" aria-label="App preview">
+      <div class="screenshot-strip">
+        <div class="phone-wrap">
+          <div class="phone-frame">
+            <div class="phone-screen">
+              <img src="screenshot-map.jpg" alt="Map view showing safe spots in Canggu" />
+            </div>
+          </div>
+        </div>
+        <div class="phone-wrap">
+          <div class="phone-frame">
+            <div class="phone-screen">
+              <img src="screenshot-detail.jpg" alt="100% Tummy Trust Score at NOAH cafe" />
+            </div>
+          </div>
+        </div>
+        <div class="phone-wrap">
+          <div class="phone-frame">
+            <div class="phone-screen">
+              <img src="screenshot-review.jpg" alt="Traveller check-in at NOAH cafe" />
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- ── Benefit Cards ── -->
@@ -488,7 +600,7 @@
         </div>
         <div class="card-body">
           <h3>See which restaurants are safe</h3>
-          <p>Real data from travelers who've eaten there — not just star ratings</p>
+          <p>Real data from travelers who've eaten there, not just star ratings</p>
         </div>
       </div>
       <div class="card amber-border">
@@ -558,7 +670,7 @@
     </div>
 
     <p class="social-proof">
-      Protecting travelers <span class="sp-green">worldwide</span> — one check-in at a time
+      Protecting travelers <span class="sp-green">worldwide</span>, one check-in at a time
     </p>
 
   </div><!-- /container -->
