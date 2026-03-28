@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Time2Eat — Carousel 1: The Story</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Space Grotesk', sans-serif;
+    background: #0a0a0a;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    gap: 14px;
+  }
+
+  .controls {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    color: #fff;
+  }
+
+  .controls button {
+    background: #39FF14;
+    color: #030712;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 13px;
+    font-family: 'Space Grotesk', sans-serif;
+  }
+
+  .controls button:disabled { background: #222; color: #555; cursor: not-allowed; }
+  .counter { color: #555; font-size: 13px; }
+
+  .hint { color: #444; font-size: 11px; letter-spacing: 0.04em; }
+
+  /* SLIDE */
+  .slide {
+    display: none;
+    width: 405px;
+    height: 720px;
+    background: #030712;
+    position: relative;
+    overflow: hidden;
+    border-radius: 18px;
+    flex-direction: column;
+  }
+
+  .slide.active { display: flex; }
+
+  /* ─── LOGO ─── */
+  .logo-lockup { display: flex; align-items: center; gap: 5px; }
+  .logo-wordmark { font-size: 22px; font-weight: 800; letter-spacing: -0.03em; color: #fff; line-height: 1; }
+  .logo-2 { color: #D946EF; }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.7); }
+  }
+
+  /* ─── GLOWS ─── */
+  .glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(70px);
+    pointer-events: none;
+  }
+
+  /* ─── TYPOGRAPHY ─── */
+  .big { font-size: 52px; font-weight: 800; line-height: 1.0; color: #fff; letter-spacing: -0.03em; }
+  .big .g { color: #39FF14; }
+  .big .m { color: #FF2D78; }
+
+  .body { font-size: 17px; line-height: 1.65; color: #6b7280; }
+  .body b { color: #e5e7eb; }
+
+  .small { font-size: 14px; line-height: 1.6; color: #4b5563; }
+  .small b { color: #9ca3af; }
+
+  /* ─── SWIPE ─── */
+  .swipe { text-align: center; font-size: 11px; color: #2d2d2d; letter-spacing: 0.08em; padding-bottom: 4px; }
+
+  /* ─── SLIDE LAYOUTS ─── */
+
+  /* Slide 1 — Full bleed text */
+  #s1 .inner { padding: 44px 34px 30px; display: flex; flex-direction: column; justify-content: space-between; height: 100%; }
+
+  /* Slide 2 */
+  #s2 .inner { padding: 44px 34px 30px; display: flex; flex-direction: column; justify-content: space-between; height: 100%; }
+
+  /* The crossed list */
+  .x-list { display: flex; flex-direction: column; gap: 0; margin-top: 18px; }
+
+  .x-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .x-item:last-child { border-bottom: none; }
+
+  .x-icon { color: #FF2D78; font-size: 15px; margin-top: 1px; flex-shrink: 0; font-weight: 700; }
+  .x-text { font-size: 15px; color: #6b7280; line-height: 1.5; }
+  .x-text b { color: #d1d5db; }
+
+  /* Slide 3 */
+  #s3 .inner { padding: 44px 34px 30px; display: flex; flex-direction: column; justify-content: space-between; height: 100%; }
+
+  /* Slide 4 — Split card */
+  #s4 .inner { padding: 44px 34px 30px; display: flex; flex-direction: column; justify-content: space-between; height: 100%; }
+
+  .rule-card {
+    background: rgba(57,255,20,0.05);
+    border: 1px solid rgba(57,255,20,0.15);
+    border-radius: 14px;
+    padding: 22px;
+    margin-top: 20px;
+  }
+
+  .rule-label { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; color: #39FF14; text-transform: uppercase; margin-bottom: 10px; }
+  .rule-text { font-size: 16px; color: #d1d5db; line-height: 1.6; }
+  .rule-text b { color: #fff; }
+
+  /* Slide 5 — Stat */
+  #s5 .inner { padding: 44px 34px 30px; display: flex; flex-direction: column; justify-content: space-between; height: 100%; }
+
+  .stat-big { font-size: 88px; font-weight: 800; color: #39FF14; line-height: 1; letter-spacing: -0.04em; }
+  .stat-sub { font-size: 14px; color: #4b5563; margin-top: 4px; }
+
+  /* Slide 6 */
+  #s6 .inner { padding: 44px 34px 30px; display: flex; flex-direction: column; justify-content: space-between; height: 100%; }
+
+  .location-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    background: rgba(57,255,20,0.08);
+    border: 1px solid rgba(57,255,20,0.2);
+    border-radius: 100px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #39FF14;
+    margin-top: 16px;
+  }
+
+  .coming-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 100px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #374151;
+    margin-top: 10px;
+  }
+
+  /* Slide 7 — CTA */
+  #s7 .inner { padding: 44px 34px 36px; display: flex; flex-direction: column; justify-content: space-between; height: 100%; }
+
+  .cta-btn {
+    display: block;
+    background: #39FF14;
+    color: #030712;
+    font-weight: 800;
+    font-size: 16px;
+    padding: 16px 28px;
+    border-radius: 100px;
+    text-align: center;
+    letter-spacing: 0.01em;
+    margin-top: 28px;
+  }
+
+  .cta-url { color: #2d2d2d; font-size: 12px; text-align: center; margin-top: 10px; letter-spacing: 0.04em; }
+
+  .hr { height: 1px; background: rgba(255,255,255,0.06); margin: 20px 0; }
+
+  .tag-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+
+  .tag {
+    font-size: 12px;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 100px;
+    border: 1px solid rgba(255,255,255,0.1);
+    color: #9ca3af;
+  }
+</style>
+</head>
+<body>
+
+<div class="controls">
+  <button id="prevBtn" onclick="go(-1)" disabled>← Prev</button>
+  <span class="counter" id="ctr">1 / 7</span>
+  <button id="nextBtn" onclick="go(1)">Next →</button>
+</div>
+
+<p class="hint">Screenshot each slide (Cmd+Shift+4) → upload as TikTok carousel</p>
+
+<!-- ══════════════════════════════════════════
+     SLIDE 1
+══════════════════════════════════════════ -->
+<div class="slide active" id="s1">
+  <div class="glow" style="width:320px;height:320px;background:#39FF14;opacity:0.08;top:-120px;right:-100px;"></div>
+  <div class="inner">
+
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+      <div class="logo-wrap">
+        <span class="logo-text">TIME<br>2 EAT</span>
+        <span class="logo-dot"></span>
+      </div>
+      <span style="color:#2d2d2d;font-size:11px;letter-spacing:0.06em;">01 / 07</span>
+    </div>
+
+    <div>
+      <div style="font-size:72px;line-height:1;margin-bottom:18px;">🤢</div>
+      <div class="big">Third time<br>in two<br><span class="g">years.</span></div>
+      <div class="body" style="margin-top:18px;">Food poisoning in Bali. Again. From somewhere I had no reason to suspect.</div>
+    </div>
+
+    <div class="swipe">SWIPE →</div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     SLIDE 2
+══════════════════════════════════════════ -->
+<div class="slide" id="s2">
+  <div class="glow" style="width:260px;height:260px;background:#FF2D78;opacity:0.08;bottom:-80px;left:-60px;"></div>
+  <div class="inner">
+
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+      <div class="logo-wrap">
+        <span class="logo-text">TIME<br>2 EAT</span>
+        <span class="logo-dot"></span>
+      </div>
+      <span style="color:#2d2d2d;font-size:11px;letter-spacing:0.06em;">02 / 07</span>
+    </div>
+
+    <div>
+      <div class="big">What's<br>already<br><span class="m">out there</span></div>
+      <div class="x-list">
+        <div class="x-item">
+          <span class="x-icon">✗</span>
+          <span class="x-text"><b>Google Maps</b> — “Great vibes!” doesn’t tell you how you felt the next morning.</span>
+        </div>
+        <div class="x-item">
+          <span class="x-icon">✗</span>
+          <span class="x-text"><b>TripAdvisor</b> — One review from 2016 wrecking a good warung.</span>
+        </div>
+        <div class="x-item">
+          <span class="x-icon">✗</span>
+          <span class="x-text"><b>Facebook groups</b> — Stories, no data. Nothing consistent.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="swipe">SWIPE →</div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     SLIDE 3
+══════════════════════════════════════════ -->
+<div class="slide" id="s3">
+  <div class="glow" style="width:300px;height:300px;background:#39FF14;opacity:0.07;center:0;top:200px;right:-120px;"></div>
+  <div class="inner">
+
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+      <div class="logo-wrap">
+        <span class="logo-text">TIME<br>2 EAT</span>
+        <span class="logo-dot"></span>
+      </div>
+      <span style="color:#2d2d2d;font-size:11px;letter-spacing:0.06em;">03 / 07</span>
+    </div>
+
+    <div>
+      <div class="big">So I built<br>the thing<br>I <span class="g">needed.</span></div>
+      <div class="body" style="margin-top:18px;">A map where travellers log where they ate and how their stomach felt the next morning.</div>
+      <div class="hr"></div>
+      <div class="small">Not stars. Not vibes. Just what actually happened after.</div>
+    </div>
+
+    <div class="swipe">SWIPE →</div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     SLIDE 4
+══════════════════════════════════════════ -->
+<div class="slide" id="s4">
+  <div class="inner">
+
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+      <div class="logo-wrap">
+        <span class="logo-text">TIME<br>2 EAT</span>
+        <span class="logo-dot"></span>
+      </div>
+      <span style="color:#2d2d2d;font-size:11px;letter-spacing:0.06em;">04 / 07</span>
+    </div>
+
+    <div>
+      <div class="big">One bad<br>review<br><span class="g">≠ flagged</span></div>
+      <div class="rule-card">
+        <div class="rule-label">How it works</div>
+        <div class="rule-text">It takes a few people eating at the same spot, getting sick separately, and reporting it before anything shows on the map.</div>
+      </div>
+      <div class="small" style="margin-top:16px;">One bad night means nothing. It has to happen to a few people before anything changes.</div>
+    </div>
+
+    <div class="swipe">SWIPE →</div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     SLIDE 5
+══════════════════════════════════════════ -->
+<div class="slide" id="s5">
+  <div class="glow" style="width:280px;height:280px;background:#39FF14;opacity:0.07;bottom:-60px;right:-60px;"></div>
+  <div class="inner">
+
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+      <div class="logo-wrap">
+        <span class="logo-text">TIME<br>2 EAT</span>
+        <span class="logo-dot"></span>
+      </div>
+      <span style="color:#2d2d2d;font-size:11px;letter-spacing:0.06em;">05 / 07</span>
+    </div>
+
+    <div>
+      <div class="stat-big">1 in 10</div>
+      <div class="stat-sub">travellers get food poisoning each year (WHO)</div>
+      <div class="hr"></div>
+      <div class="big" style="font-size:36px;margin-top:8px;">That's not<br>bad luck.<br><span class="g">That's a gap.</span></div>
+      <div class="body" style="margin-top:14px;">That's a solvable problem.</div>
+    </div>
+
+    <div class="swipe">SWIPE →</div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     SLIDE 6
+══════════════════════════════════════════ -->
+<div class="slide" id="s6">
+  <div class="inner">
+
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+      <div class="logo-wrap">
+        <span class="logo-text">TIME<br>2 EAT</span>
+        <span class="logo-dot"></span>
+      </div>
+      <span style="color:#2d2d2d;font-size:11px;letter-spacing:0.06em;">06 / 07</span>
+    </div>
+
+    <div>
+      <div class="big">Starting<br>small.<br><span class="g">Bali first.</span></div>
+      <div class="body" style="margin-top:16px;">Starting small so the data is actually useful before growing.</div>
+      <div class="location-pill">🇮🇩 Bali — launching here</div><br>
+      <div class="coming-pill">🇹🇭 Thailand — coming</div><br>
+      <div class="coming-pill">🇻🇳 Vietnam — coming</div>
+    </div>
+
+    <div class="swipe">SWIPE →</div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     SLIDE 7 — CTA
+══════════════════════════════════════════ -->
+<div class="slide" id="s7">
+  <div class="glow" style="width:300px;height:300px;background:#39FF14;opacity:0.08;top:-80px;left:-80px;"></div>
+  <div class="glow" style="width:220px;height:220px;background:#FF2D78;opacity:0.08;bottom:-60px;right:-60px;"></div>
+  <div class="inner">
+
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+      <div class="logo-wrap">
+        <span class="logo-text">TIME<br>2 EAT</span>
+        <span class="logo-dot"></span>
+      </div>
+      <span style="color:#2d2d2d;font-size:11px;letter-spacing:0.06em;">07 / 07</span>
+    </div>
+
+    <div style="text-align:center;">
+      <div class="big" style="text-align:center;">Eat more.<br>Risk <span class="g">less.</span></div>
+      <div class="body" style="text-align:center;margin-top:14px;">Launching in Bali first. Get on the waitlist.</div>
+      <a class="cta-btn">Join the Waitlist</a>
+      <div class="cta-url">time2eat-waitlist.vercel.app</div>
+    </div>
+
+    <div class="swipe">LINK IN BIO</div>
+  </div>
+</div>
+
+<script>
+  let cur = 1, total = 7;
+  function go(dir) {
+    document.getElementById('s'+cur).classList.remove('active');
+    cur = Math.max(1, Math.min(total, cur + dir));
+    document.getElementById('s'+cur).classList.add('active');
+    document.getElementById('ctr').textContent = cur + ' / ' + total;
+    document.getElementById('prevBtn').disabled = cur === 1;
+    document.getElementById('nextBtn').disabled = cur === total;
+  }
+</script>
+</body>
+</html>

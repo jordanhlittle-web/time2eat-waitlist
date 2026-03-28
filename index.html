@@ -93,7 +93,7 @@
     ──────────────────────────────────────── */
     .hero {
       text-align: center;
-      margin-bottom: 56px;
+      margin-bottom: 32px;
     }
 
     .badge {
@@ -134,25 +134,51 @@
       margin: 0 auto;
     }
 
-    .hero-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
+    /* ── Hero inline form ── */
+    .hero-form-wrap {
       margin-top: 28px;
-      padding: 13px 28px;
-      background: transparent;
-      border: 1.5px solid var(--green);
-      color: var(--green);
-      font-family: 'Space Grotesk', sans-serif;
-      font-weight: 600;
-      font-size: 15px;
-      border-radius: 100px;
-      text-decoration: none;
-      transition: background 0.2s ease, box-shadow 0.2s ease;
     }
-    .hero-cta:hover {
-      background: rgba(57,255,20,0.09);
-      box-shadow: 0 0 22px rgba(57,255,20,0.28);
+    .hero-form {
+      display: flex;
+      gap: 10px;
+      max-width: 460px;
+      margin: 0 auto;
+    }
+    .hero-form .email-input {
+      flex: 1;
+      min-width: 0;
+    }
+    .hero-submit-btn {
+      flex-shrink: 0;
+      padding: 14px 22px;
+      background: var(--pink);
+      color: var(--white);
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing: 0.02em;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
+    }
+    .hero-submit-btn:hover:not(:disabled) {
+      background: #FF33FF;
+      box-shadow: 0 0 30px rgba(255,0,255,0.5);
+      transform: translateY(-1px);
+    }
+    .hero-submit-btn:active:not(:disabled) { transform: translateY(0); }
+    .hero-submit-btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    .hero-form-wrap .privacy-note {
+      margin-top: 10px;
+    }
+    @media (max-width: 520px) {
+      .hero-form { flex-direction: column; }
+      .hero-submit-btn { width: 100%; padding: 15px; font-size: 16px; }
     }
 
     /* ────────────────────────────────────────
@@ -220,7 +246,7 @@
     .form-card {
       background: var(--card);
       border-radius: 20px;
-      padding: 38px 34px;
+      padding: 24px 24px;
       border: 1px solid var(--border);
     }
     .form-card h2 {
@@ -232,10 +258,11 @@
     .form-subtitle {
       font-size: 14px;
       color: var(--gray);
-      margin-bottom: 30px;
+      margin-bottom: 20px;
     }
 
-    .form-group { margin-bottom: 22px; }
+    .form-group { margin-bottom: 12px; }
+    #waitlist-form .email-input { margin-bottom: 10px; }
 
     .field-label {
       display: block;
@@ -437,7 +464,7 @@
 
     /* ── Progress bar ── */
     .progress-wrap {
-      margin: 18px 0 24px;
+      margin: 0 0 16px;
     }
     .progress-label {
       display: flex;
@@ -519,7 +546,7 @@
 
     @media (max-width: 440px) {
       .container   { padding: 36px 16px 80px; }
-      .form-card   { padding: 26px 20px; }
+      .form-card   { padding: 20px 16px; }
       .radio-label { font-size: 13px; padding: 12px 10px; }
       .logo-wordmark { font-size: 24px; }
     }
@@ -528,6 +555,7 @@
        SCREENSHOTS
     ──────────────────────────────────────── */
     .screenshots {
+      margin-top: 48px;
       margin-bottom: 48px;
     }
     .screenshots-label {
@@ -539,16 +567,21 @@
       letter-spacing: 0.1em;
       margin-bottom: 20px;
     }
+    .screenshot-scroll {
+      overflow-x: auto;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+      padding-bottom: 16px;
+    }
+    .screenshot-scroll::-webkit-scrollbar { display: none; }
     .screenshot-strip {
       display: flex;
       gap: 16px;
-      overflow-x: auto;
-      padding: 0 4px 16px;
-      scrollbar-width: none;
-      -webkit-overflow-scrolling: touch;
+      padding: 0 4px;
       align-items: flex-start;
+      width: max-content;
+      margin: 0 auto;
     }
-    .screenshot-strip::-webkit-scrollbar { display: none; }
 
     .phone-wrap {
       flex: 0 0 auto;
@@ -644,11 +677,59 @@
       </div>
       <h1>Stop gambling<br>with your stomach</h1>
       <p>Time2Eat gives every restaurant a Tummy Trust Score, built from real check-ins by travelers who ate there this week, not star ratings from years ago.</p>
-      <a class="hero-cta" href="#waitlist">Claim My Founding Member Spot ↓</a>
     </section>
+
+    <!-- ── Waitlist Form ── -->
+    <div class="form-card" id="waitlist">
+
+      <div class="progress-wrap">
+        <div class="progress-label">
+          <span>Founding members</span>
+          <span class="spots-count"><span id="signup-count">45</span> / 1,000</span>
+        </div>
+        <div class="progress-track">
+          <div class="progress-fill" id="progress-fill"></div>
+        </div>
+      </div>
+
+      <div id="form-wrapper">
+        <form id="waitlist-form" novalidate>
+
+          <input
+            class="email-input"
+            type="email"
+            id="email"
+            name="email"
+            placeholder="you@example.com"
+            required
+            autocomplete="email"
+          />
+
+          <button type="submit" class="submit-btn" id="submit-btn">
+            Claim My Founding Member Spot
+          </button>
+
+          <div class="error-msg" id="error-msg" role="alert"></div>
+        </form>
+      </div>
+
+      <div class="success-state" id="success-state" role="status" aria-live="polite">
+        <span class="success-rocket" aria-hidden="true">🎉</span>
+        <h3>You're in the founding crew.</h3>
+        <p>Welcome aboard. You'll be first when we launch in your city.</p>
+        <div class="referral-nudge">
+          <p>Know a traveler who's learned the hard way? Send this to them.</p>
+          <button class="copy-link-btn" id="copy-link-btn" onclick="copyWaitlistLink()">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+            Copy invite link
+          </button>
+        </div>
+      </div>
+    </div>
 
     <!-- ── Screenshots ── -->
     <section class="screenshots" aria-label="App preview">
+      <div class="screenshot-scroll">
       <div class="screenshot-strip">
         <div class="phone-wrap">
           <div class="phone-frame">
@@ -671,6 +752,7 @@
             </div>
           </div>
         </div>
+      </div>
       </div>
     </section>
 
@@ -712,61 +794,6 @@
       </div>
     </section>
 
-    <!-- ── Waitlist Form ── -->
-    <div class="form-card" id="waitlist">
-      <h2>Become a Founding Member</h2>
-      <p class="form-subtitle">We're rolling out city by city. Be first when we launch in yours.</p>
-
-      <div class="progress-wrap">
-        <div class="progress-label">
-          <span>Founding members</span>
-          <span class="spots-count"><span id="signup-count">45</span> / 1,000</span>
-        </div>
-        <div class="progress-track">
-          <div class="progress-fill" id="progress-fill"></div>
-        </div>
-      </div>
-
-      <div id="form-wrapper">
-        <form id="waitlist-form" novalidate>
-
-          <div class="form-group">
-            <label class="field-label" for="email">Email address</label>
-            <input
-              class="email-input"
-              type="email"
-              id="email"
-              name="email"
-              placeholder="you@example.com"
-              required
-              autocomplete="email"
-            />
-          </div>
-
-          <button type="submit" class="submit-btn" id="submit-btn">
-            Claim My Founding Member Spot
-          </button>
-
-          <p class="privacy-note">No spam, ever. Unsubscribe anytime.</p>
-
-          <div class="error-msg" id="error-msg" role="alert"></div>
-        </form>
-      </div>
-
-      <div class="success-state" id="success-state" role="status" aria-live="polite">
-        <span class="success-rocket" aria-hidden="true">🎉</span>
-        <h3>You're in the founding crew.</h3>
-        <p>Welcome aboard. You'll be first when we launch in your city.</p>
-        <div class="referral-nudge">
-          <p>Know a traveler who's learned the hard way? Send this to them.</p>
-          <button class="copy-link-btn" id="copy-link-btn" onclick="copyWaitlistLink()">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
-            Copy invite link
-          </button>
-        </div>
-      </div>
-    </div>
-
     <p class="social-proof">
       <span class="sp-green">Travelers worldwide</span> are building the world's safest food map.
     </p>
@@ -806,7 +833,7 @@
     const form         = document.getElementById('waitlist-form');
     const submitBtn    = document.getElementById('submit-btn');
     const errorMsg     = document.getElementById('error-msg');
-    const formWrapper  = document.getElementById('form-wrapper');
+    const heroFormWrap = document.getElementById('form-wrapper');
     const successState = document.getElementById('success-state');
 
     // Animate the number counting up from `from` to `to`
@@ -934,10 +961,10 @@
     }
 
     function showSuccess() {
-      formWrapper.style.transition = 'opacity 0.28s ease';
-      formWrapper.style.opacity    = '0';
+      heroFormWrap.style.transition = 'opacity 0.28s ease';
+      heroFormWrap.style.opacity    = '0';
       setTimeout(() => {
-        formWrapper.style.display = 'none';
+        heroFormWrap.style.display = 'none';
         successState.classList.add('visible');
       }, 280);
     }

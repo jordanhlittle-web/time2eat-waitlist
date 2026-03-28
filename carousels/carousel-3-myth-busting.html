@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Time2Eat — Carousel 3: Myth Busting</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Space Grotesk', sans-serif;
+    background: #0a0a0a;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    gap: 14px;
+  }
+
+  .controls { display: flex; align-items: center; gap: 14px; color: #fff; }
+  .controls button {
+    background: #39FF14; color: #030712; border: none;
+    padding: 8px 18px; border-radius: 8px; font-weight: 700;
+    cursor: pointer; font-size: 13px; font-family: 'Space Grotesk', sans-serif;
+  }
+  .controls button:disabled { background: #222; color: #555; cursor: not-allowed; }
+  .counter { color: #555; font-size: 13px; }
+  .hint { color: #444; font-size: 11px; letter-spacing: 0.04em; }
+
+  .slide {
+    display: none; width: 405px; height: 720px;
+    background: #030712; position: relative; overflow: hidden;
+    border-radius: 18px; flex-direction: column;
+  }
+  .slide.active { display: flex; }
+
+  .logo-wrap { position: relative; display: inline-flex; align-items: flex-start; }
+  .logo-text {
+    font-size: 20px; font-weight: 800; letter-spacing: -0.04em; line-height: 1;
+    background: linear-gradient(180deg, #ffffff 0%, #555 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    text-transform: uppercase;
+  }
+  .logo-dot {
+    width: 7px; height: 7px; background: #39FF14; border-radius: 50%;
+    box-shadow: 0 0 6px #39FF14, 0 0 12px #39FF14;
+    position: absolute; top: -2px; right: -10px;
+    animation: pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.7); }
+  }
+
+  .glow { position: absolute; border-radius: 50%; filter: blur(70px); pointer-events: none; }
+
+  .big { font-size: 44px; font-weight: 800; line-height: 1.05; color: #fff; letter-spacing: -0.03em; }
+  .big .g { color: #39FF14; }
+  .big .m { color: #FF2D78; }
+
+  .body { font-size: 16px; line-height: 1.65; color: #6b7280; }
+  .body b { color: #e5e7eb; }
+  .small { font-size: 13px; line-height: 1.6; color: #4b5563; }
+
+  .inner { padding: 44px 34px 30px; display: flex; flex-direction: column; justify-content: space-between; height: 100%; }
+  .swipe { text-align: center; font-size: 11px; color: #2d2d2d; letter-spacing: 0.08em; padding-bottom: 4px; }
+  .hr { height: 1px; background: rgba(255,255,255,0.06); margin: 18px 0; }
+
+  /* Myth counter dots */
+  .myth-count {
+    display: flex; align-items: center; gap: 5px; margin-bottom: 16px;
+  }
+  .mc { width: 5px; height: 5px; border-radius: 50%; background: #1f2937; }
+  .mc.on { background: #39FF14; }
+
+  /* Myth/fact cards */
+  .myth-card {
+    border-radius: 14px;
+    padding: 18px 20px;
+  }
+  .m-card { background: rgba(255,45,120,0.06); border: 1px solid rgba(255,45,120,0.15); }
+  .f-card { background: rgba(57,255,20,0.06); border: 1px solid rgba(57,255,20,0.15); }
+
+  .card-label {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; margin-bottom: 8px;
+  }
+  .m-label { color: #FF2D78; }
+  .f-label { color: #39FF14; }
+
+  .card-text { font-size: 16px; color: #d1d5db; line-height: 1.55; }
+  .card-text b { color: #fff; }
+
+  .arrow-down {
+    text-align: center; color: #374151; font-size: 18px;
+    padding: 6px 0;
+  }
+
+  .footnote { font-size: 12px; color: #374151; margin-top: 12px; line-height: 1.5; }
+
+  /* CTA */
+  .cta-btn {
+    display: block; background: #39FF14; color: #030712;
+    font-weight: 800; font-size: 16px; padding: 16px 28px;
+    border-radius: 100px; text-align: center; letter-spacing: 0.01em; margin-top: 28px;
+  }
+  .cta-url { color: #2d2d2d; font-size: 12px; text-align: center; margin-top: 10px; letter-spacing: 0.04em; }
+</style>
+</head>
+<body>
+
+<div class="controls">
+  <button id="prevBtn" onclick="go(-1)" disabled>← Prev</button>
+  <span class="counter" id="ctr">1 / 7</span>
+  <button id="nextBtn" onclick="go(1)">Next →</button>
+</div>
+<p class="hint">Screenshot each slide → upload as TikTok carousel</p>
+
+<!-- S1 — Hook -->
+<div class="slide active" id="s1">
+  <div class="glow" style="width:280px;height:280px;background:#FF2D78;opacity:0.08;top:-80px;right:-60px;"></div>
+  <div class="inner">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+      <div class="logo-wrap"><span class="logo-text">TIME<br>2 EAT</span><span class="logo-dot"></span></div>
+      <span style="color:#2d2d2d;font-size:11px;letter-spacing:0.06em;">01 / 07</span>
+    </div>
+    <div>
+      <div style="font-size:56px;line-height:1;margin-bottom:18px;">🚫</div>
+      <div class="big">5 things<br>people get<br><span class="g">wrong</span></div>
+      <div class="body" style="margin-top:16px;">About this app. And why they’re wrong.</div>
+    </div>
+    <div class="swipe">SWIPE TO SEE →</div>
+  </div>
+</div>
+
+<!-- S2 — Myth 1 -->
+<div class="slide" id="s2">
+  <div class="inner">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+      <div class="logo-wrap"><span class="logo-text">TIME<br>2 EAT</span><span class="logo-dot"></span></div>
+      <span style="color:#2d2d2d;font-size:11px;letter-spacing:0.06em;">02 / 07</span>
+    </div>
+    <div>
+      <div class="myth-count">
+        <div class="mc on"></div><div class="mc"></div><div class="mc"></div><div class="mc"></div><div class="mc"></div>
+        <span style="font-size:10px;color:#374151;margin-left:6px;letter-spacing:0.08em;text-transform:uppercase;">Myth 1</span>
+      </div>
+      <div class="myth-card m-card">
+        <div class="card-label m-label">✗ The myth</div>
+        <div class="card-text">"One bad review will destroy a local restaurant"</div>
+      </div>
+      <div class="arrow-down">↓</div>
+      <div class="myth-card f-card">
+        <div class="card-label f-label">✓ Reality</div>
+        <div class="card-text">It takes multiple people eating at the same spot, getting sick separately, and reporting it. Not one person having a bad night.</div>
+      </div>
+      <div class="footnote">One dodgy stomach changes nothing on the map.</div>
+    </div>
+    <div class="swipe">SWIPE →</div>
+  </div>
+</div>
+
+<!-- S3 — Myth 2 -->
+<div class="slide" id="s3">
+  <div class="glow" style="width:240px;height:240px;background:#39FF14;opacity:0.07;bottom:-60px;right:-60px;"></div>
+  <div class="inner">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+      <div class="logo-wrap"><span class="logo-text">TIME<br>2 EAT</span><span class="logo-dot"></span></div>
+      <span style="color:#2d2d2d;font-size:11px;letter-spacing:0.06em;">03 / 07</span>
+    </div>
+    <div>
+      <div class="myth-count">
+        <div class="mc"></div><div class="mc on"></div><div class="mc"></div><div class="mc"></div><div class="mc"></div>
+        <span style="font-size:10px;color:#374151;margin-left:6px;letter-spacing:0.08em;text-transform:uppercase;">Myth 2</span>
+      </div>
+      <div class="myth-card m-card">
+        <div class="card-label m-label">✗ The myth</div>
+        <div class="card-text">"Google already does this"</div>
+      </div>
+      <div class="arrow-down">↓</div>
+      <div class="myth-card f-card">
+        <div class="card-label f-label">✓ Reality</div>
+        <div class="card-text">Google tells you the food was good. Not how that person felt the next morning. Completely different question.</div>
+      </div>
+    </div>
+    <div class="swipe">SWIPE →</div>
+  </div>
+</div>
+
+<!-- S4 — Myth 3 -->
+<div class="slide" id="s4">
+  <div class="inner">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+      <div class="logo-wrap"><span class="logo-text">TIME<br>2 EAT</span><span class="logo-dot"></span></div>
+      <span style="color:#2d2d2d;font-size:11px;letter-spacing:0.06em;">04 / 07</span>
+    </div>
+    <div>
+      <div class="myth-count">
+        <div class="mc"></div><div class="mc"></div><div class="mc on"></div><div class="mc"></div><div class="mc"></div>
+        <span style="font-size:10px;color:#374151;margin-left:6px;letter-spacing:0.08em;text-transform:uppercase;">Myth 3</span>
+      </div>
+      <div class="myth-card m-card">
+        <div class="card-label m-label">✗ The myth</div>
+        <div class="card-text">"You can't know where you actually got sick from"</div>
+      </div>
+      <div class="arrow-down">↓</div>
+      <div class="myth-card f-card">
+        <div class="card-label f-label">✓ Reality</div>
+        <div class="card-text">Fair point. You can't always be sure. But if a few separate people eat at the same place and all get sick around the same time, that's more than bad luck.</div>
+      </div>
+    </div>
+    <div class="swipe">SWIPE →</div>
+  </div>
+</div>
+
+<!-- S5 — Myth 4 -->
+<div class="slide" id="s5">
+  <div class="glow" style="width:240px;height:240px;background:#a855f7;opacity:0.08;top:120px;left:-60px;"></div>
+  <div class="inner">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+      <div class="logo-wrap"><span class="logo-text">TIME<br>2 EAT</span><span class="logo-dot"></span></div>
+      <span style="color:#2d2d2d;font-size:11px;letter-spacing:0.06em;">05 / 07</span>
+    </div>
+    <div>
+      <div class="myth-count">
+        <div class="mc"></div><div class="mc"></div><div class="mc"></div><div class="mc on"></div><div class="mc"></div>
+        <span style="font-size:10px;color:#374151;margin-left:6px;letter-spacing:0.08em;text-transform:uppercase;">Myth 4</span>
+      </div>
+      <div class="myth-card m-card">
+        <div class="card-label m-label">✗ The myth</div>
+        <div class="card-text">"It'll target warungs and street food stalls"</div>
+      </div>
+      <div class="arrow-down">↓</div>
+      <div class="myth-card f-card">
+        <div class="card-label f-label">✓ Reality</div>
+        <div class="card-text">Most small warungs will show green. That’s the whole point. Only spots with repeated problems across separate reports get flagged.</div>
+      </div>
+    </div>
+    <div class="swipe">SWIPE →</div>
+  </div>
+</div>
+
+<!-- S6 — Myth 5 -->
+<div class="slide" id="s6">
+  <div class="inner">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+      <div class="logo-wrap"><span class="logo-text">TIME<br>2 EAT</span><span class="logo-dot"></span></div>
+      <span style="color:#2d2d2d;font-size:11px;letter-spacing:0.06em;">06 / 07</span>
+    </div>
+    <div>
+      <div class="myth-count">
+        <div class="mc"></div><div class="mc"></div><div class="mc"></div><div class="mc"></div><div class="mc on"></div>
+        <span style="font-size:10px;color:#374151;margin-left:6px;letter-spacing:0.08em;text-transform:uppercase;">Myth 5</span>
+      </div>
+      <div class="myth-card m-card">
+        <div class="card-label m-label">✗ The myth</div>
+        <div class="card-text">"It just blames whatever you ate most recently"</div>
+      </div>
+      <div class="arrow-down">↓</div>
+      <div class="myth-card f-card">
+        <div class="card-label f-label">✓ Reality</div>
+        <div class="card-text">The app accounts for this. Sick 30 minutes after eating is very different from sick the next morning. Both get treated differently.</div>
+      </div>
+    </div>
+    <div class="swipe">SWIPE →</div>
+  </div>
+</div>
+
+<!-- S7 — CTA -->
+<div class="slide" id="s7">
+  <div class="glow" style="width:300px;height:300px;background:#39FF14;opacity:0.08;top:-80px;right:-80px;"></div>
+  <div class="glow" style="width:200px;height:200px;background:#FF2D78;opacity:0.08;bottom:-60px;left:-60px;"></div>
+  <div class="inner">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+      <div class="logo-wrap"><span class="logo-text">TIME<br>2 EAT</span><span class="logo-dot"></span></div>
+      <span style="color:#2d2d2d;font-size:11px;letter-spacing:0.06em;">07 / 07</span>
+    </div>
+    <div style="text-align:center;">
+      <div class="big" style="text-align:center;font-size:48px;">Travel more.<br>Trust your<br><span class="g">gut.</span></div>
+      <div class="body" style="text-align:center;margin-top:14px;">Launching in Bali first. Get on the waitlist.</div>
+      <a class="cta-btn">Join the Waitlist</a>
+      <div class="cta-url">time2eat-waitlist.vercel.app</div>
+    </div>
+    <div class="swipe">LINK IN BIO</div>
+  </div>
+</div>
+
+<script>
+  let cur = 1, total = 7;
+  function go(dir) {
+    document.getElementById('s'+cur).classList.remove('active');
+    cur = Math.max(1, Math.min(total, cur + dir));
+    document.getElementById('s'+cur).classList.add('active');
+    document.getElementById('ctr').textContent = cur + ' / ' + total;
+    document.getElementById('prevBtn').disabled = cur === 1;
+    document.getElementById('nextBtn').disabled = cur === total;
+  }
+</script>
+</body>
+</html>
