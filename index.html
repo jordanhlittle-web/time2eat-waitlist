@@ -720,7 +720,7 @@
       <div class="progress-wrap">
         <div class="progress-label">
           <span>Founding members</span>
-          <span class="spots-count"><span id="signup-count">44</span> / 1,000</span>
+          <span class="spots-count"><span id="signup-count">45</span> / 1,000</span>
         </div>
         <div class="progress-track">
           <div class="progress-fill" id="progress-fill"></div>
@@ -849,19 +849,19 @@
     // Fetch the live count from Supabase on page load
     async function fetchCount() {
       try {
-        const { count } = await db
-          .from('waitlist')
-          .select('*', { count: 'exact', head: true });
-        if (typeof count === 'number') {
+        const { data, error } = await db.rpc('get_waitlist_count');
+        if (!error && typeof data === 'number') {
           const displayed = parseInt(countEl.textContent, 10) || 0;
-          animateCountUp(Math.max(displayed - 5, 0), count, 900);
-          setProgressBar(count);
+          animateCountUp(Math.max(displayed - 5, 0), data, 900);
+          setProgressBar(data);
         }
       } catch (_) {
         // Keep the fallback number already shown
       }
     }
 
+    // Set bar immediately from the fallback number in the HTML, then update from Supabase
+    setProgressBar(parseInt(countEl.textContent, 10) || 0);
     fetchCount();
 
     form.addEventListener('submit', async (e) => {
