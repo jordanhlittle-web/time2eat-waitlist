@@ -1015,8 +1015,12 @@
       submitBtn.textContent = loading ? 'Claiming your spot…' : 'Claim My Founding Member Spot';
     }
 
-    const WAITLIST_URL = 'https://time2eat-waitlist.vercel.app/';
-    const SHARE_TEXT   = "🍽️ Found this app that shows you if a restaurant is safe to eat at before you order — no more food poisoning on holiday! Join the waitlist: " + WAITLIST_URL;
+    const WAITLIST_URL  = 'https://time2eat-waitlist.vercel.app/';
+    const WA_URL        = WAITLIST_URL + '?utm_source=whatsapp&utm_medium=referral';
+    const IG_URL        = WAITLIST_URL + '?utm_source=instagram&utm_medium=referral';
+    const COPY_URL      = WAITLIST_URL + '?utm_source=copy_link&utm_medium=referral';
+    const SHARE_TEXT_WA = "🍽️ Found this app that shows you if a restaurant is safe to eat at before you order — no more food poisoning on holiday! Join the waitlist: " + WA_URL;
+    const SHARE_TEXT_IG = "🍽️ Found this app that shows you if a restaurant is safe to eat at before you order — no more food poisoning on holiday! Join the waitlist: " + IG_URL;
     let   signedUpEmail = '';
 
     async function trackShare(type) {
@@ -1027,7 +1031,7 @@
 
     function setupShareButtons() {
       const waBtn = document.getElementById('share-whatsapp');
-      waBtn.href = 'https://wa.me/?text=' + encodeURIComponent(SHARE_TEXT);
+      waBtn.href = 'https://wa.me/?text=' + encodeURIComponent(SHARE_TEXT_WA);
       waBtn.addEventListener('click', () => trackShare('whatsapp'));
     }
 
@@ -1036,11 +1040,11 @@
       const label = document.getElementById('instagram-btn-label');
       if (navigator.share) {
         try {
-          await navigator.share({ title: 'Time2Eat', text: SHARE_TEXT, url: WAITLIST_URL });
+          await navigator.share({ title: 'Time2Eat', text: SHARE_TEXT_IG, url: IG_URL });
         } catch (_) {}
       } else {
         // Desktop fallback — copy the link
-        await navigator.clipboard.writeText(WAITLIST_URL).catch(() => {});
+        await navigator.clipboard.writeText(IG_URL).catch(() => {});
         label.textContent = 'Link copied — paste into Instagram';
         setTimeout(() => { label.textContent = 'Share on Instagram'; }, 3000);
       }
@@ -1050,7 +1054,7 @@
       const btn   = document.getElementById('copy-link-btn');
       const label = document.getElementById('copy-btn-label');
       trackShare('copy_link');
-      navigator.clipboard.writeText(WAITLIST_URL).then(() => {
+      navigator.clipboard.writeText(COPY_URL).then(() => {
         btn.classList.add('copied');
         label.textContent = 'Copied!';
         setTimeout(() => {
@@ -1058,7 +1062,7 @@
           label.textContent = 'Copy link';
         }, 2500);
       }).catch(() => {
-        label.textContent = WAITLIST_URL;
+        label.textContent = COPY_URL;
       });
     }
 
