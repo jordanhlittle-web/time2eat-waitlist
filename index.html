@@ -1000,7 +1000,8 @@
           fetch(MAILERLITE_FN_URL, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ email })
+            body: JSON.stringify({ email }),
+            keepalive: true
           }).catch(() => {});
         }
       } catch (err) {
