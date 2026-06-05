@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms of Service · Time2Eat</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg:     #030712;
+      --card:   #1F2937;
+      --green:  #39FF14;
+      --pink:   #FF00FF;
+      --white:  #FFFFFF;
+      --gray:   #9CA3AF;
+      --border: #374151;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background-color: var(--bg);
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    .glow {
+      position: fixed;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 0;
+      filter: blur(90px);
+    }
+    .glow-green {
+      width: 500px; height: 500px;
+      top: -150px; left: -150px;
+      background: radial-gradient(circle, rgba(57,255,20,0.07) 0%, transparent 65%);
+    }
+    .glow-pink {
+      width: 500px; height: 500px;
+      bottom: -150px; right: -150px;
+      background: radial-gradient(circle, rgba(255,0,255,0.07) 0%, transparent 65%);
+    }
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 52px 24px 100px;
+      position: relative;
+      z-index: 1;
+    }
+    /* Logo */
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 48px;
+      text-decoration: none;
+    }
+    .logo-wordmark {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 24px;
+      letter-spacing: -0.6px;
+      color: var(--white);
+    }
+    .logo-wordmark .accent { color: var(--pink); }
+    /* Header */
+    .page-header {
+      margin-bottom: 40px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--border);
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--gray);
+      font-size: 13px;
+      text-decoration: none;
+      margin-bottom: 24px;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: var(--white); }
+    .page-header h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: clamp(26px, 5vw, 38px);
+      line-height: 1.15;
+      margin-bottom: 10px;
+    }
+    .effective-date {
+      font-size: 13px;
+      color: var(--gray);
+    }
+    /* Content */
+    .legal-content h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing: 0.06em;
+      color: var(--green);
+      text-transform: uppercase;
+      margin: 40px 0 12px;
+    }
+    .legal-content h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600;
+      font-size: 15px;
+      color: var(--white);
+      margin: 24px 0 8px;
+    }
+    .legal-content p {
+      font-size: 14.5px;
+      color: var(--gray);
+      line-height: 1.75;
+      margin-bottom: 14px;
+    }
+    .legal-content ul {
+      margin: 8px 0 16px 20px;
+      list-style: disc;
+    }
+    .legal-content li {
+      font-size: 14.5px;
+      color: var(--gray);
+      line-height: 1.7;
+      margin-bottom: 6px;
+    }
+    footer {
+      text-align: center;
+      margin-top: 60px;
+      padding-top: 32px;
+      border-top: 1px solid var(--border);
+      font-size: 12.5px;
+      color: #374151;
+    }
+    footer a {
+      color: #4B5563;
+      text-decoration: none;
+      margin: 0 8px;
+    }
+    footer a:hover { color: var(--gray); }
+    @media (max-width: 440px) {
+      .container { padding: 36px 16px 80px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="glow glow-green" aria-hidden="true"></div>
+  <div class="glow glow-pink"  aria-hidden="true"></div>
+
+  <div class="container">
+
+    <a href="/" class="logo">
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2" stroke="#FF00FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <line x1="7" y1="11" x2="7" y2="22" stroke="#FF00FF" stroke-width="2" stroke-linecap="round"/>
+        <path d="M21 2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3V2z" stroke="#FF00FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <line x1="21" y1="15" x2="21" y2="22" stroke="#FF00FF" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <div class="logo-wordmark">Time<span class="accent">2</span>Eat</div>
+    </a>
+
+    <div class="page-header">
+      <a href="/" class="back-link">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
+        Back to waitlist
+      </a>
+      <h1>Terms of Service</h1>
+      <p class="effective-date">Effective Date: March 24th 2026</p>
+    </div>
+
+    <div class="legal-content">
+<p>Overview | Effective Date: March 24th 2026</p>
+<p>These Terms of Service (&quot;Terms&quot;) constitute a legally binding agreement between you (&quot;User&quot;, &quot;you&quot;, or &quot;your&quot;) and Time2Eat (&quot;Company&quot;, &quot;we&quot;, &quot;us&quot;, or &quot;our&quot;), governing your access to and use of the Time2Eat mobile application and all associated services (collectively, the &quot;Platform&quot; or &quot;App&quot;).</p>
+<p>Time2Eat is a community-driven food safety platform that enables registered users to submit, view, and share illness reports and food safety observations relating to food service establishments (&quot;Restaurants&quot;) located in Indonesia (with primary operations in Bali) and Thailand. The Platform operates as a neutral hosting service and does not independently verify, endorse, or make any representations regarding any user-submitted content.</p>
+<p>PLEASE READ THESE TERMS CAREFULLY BEFORE USING THE APP.</p>
+<p>By downloading, installing, accessing, or using Time2Eat, you confirm that you have read, understood, and agree to be bound by these Terms in their entirety. If you do not agree to these Terms, you must immediately cease all use of the Platform and uninstall the App.</p>
+<p>IMPORTANT NOTICE REGARDING HEALTH DATA: Illness reports submitted through this Platform may constitute special category personal data under applicable law, including the Indonesian Personal Data Protection Law (Law No. 27 of 2022) and the Thailand Personal Data Protection Act B.E. 2562 (2019). By submitting such reports, you provide your explicit consent to the processing of this data as described herein and in our Privacy Policy.</p>
+<h2>DEFINITIONS</h2>
+<ul>
+<li>For the purposes of these Terms, the following definitions apply:</li>
+</ul>
+<ul>
+<li>&quot;App&quot; or &quot;Platform&quot; means the Time2Eat mobile application available on Google Play and the Apple App Store, including all content, features, tools, and services provided therein.</li>
+</ul>
+<ul>
+<li>&quot;Community Report&quot; or &quot;Illness Report&quot; means any user-submitted report, rating, comment, photograph, or other content relating to a food safety incident, foodborne illness, or hygiene observation at a Restaurant, submitted through the Platform.</li>
+</ul>
+<ul>
+<li>&quot;Content&quot; means all text, images, data, information, reports, ratings, comments, and other material submitted, posted, or transmitted through the Platform by Users.</li>
+</ul>
+<ul>
+<li>&quot;ITE Law&quot; means Indonesia&#x27;s Law No. 11 of 2008 on Electronic Information and Transactions, as amended by Law No. 19 of 2016.</li>
+</ul>
+<ul>
+<li>&quot;PDP Law&quot; means Indonesia&#x27;s Personal Data Protection Law, Law No. 27 of 2022.</li>
+</ul>
+<ul>
+<li>&quot;PDPA&quot; means Thailand&#x27;s Personal Data Protection Act B.E. 2562 (2019), as  amended.</li>
+</ul>
+<ul>
+<li>&quot;CCA&quot; means Thailand&#x27;s Computer Crime Act B.E. 2550 (2007), as amended by the Computer Crime Act (No. 2) B.E. 2560 (2017).</li>
+</ul>
+<ul>
+<li>&quot;Restaurant&quot; means any food service establishment, eatery, café, food stall, or vendor listed or referenced on the Platform.</li>
+</ul>
+<ul>
+<li>&quot;User&quot; means any individual who accesses, registers on, or uses the Platform, including persons who submit Community Reports.</li>
+</ul>
+<ul>
+<li>&quot;UGC&quot; or &quot;User-Generated Content&quot; means any Content submitted, posted, or uploaded to the Platform by Users.</li>
+</ul>
+<h2>ELIGIBILITY AND ACCOUNT REGISTRATION</h2>
+<ul>
+<li>Time2Eat is a community platform built on trust — trust between users, and trust that the reports submitted reflect genuine experiences. To protect that integrity, access to the Platform is open only to individuals who meet certain baseline requirements and who commit to maintaining an honest account.</li>
+<li>You may use the Platform if you are at least 18 years of age (or the age of majority in your jurisdiction, whichever is higher), have the legal capacity to enter into a binding agreement, and are not otherwise prohibited from using the Platform under Indonesian or Thai law. If you have previously had a Time2Eat account terminated or suspended, you may not register a new account.</li>
+<li>Creating an account is straightforward, but it comes with responsibilities. When you register, you agree to provide truthful and accurate information, including a valid email address, and to keep that information current. Your account credentials are personal to you; please do not share them with anyone else. You are responsible for everything that happens under your account, whether or not you personally authorised it, so if you ever suspect unauthorised access or a security breach, let us know immediately at support@time2eat.app and we will act promptly.</li>
+<li>You are solely responsible for maintaining the security of your account. Time2Eat will not be liable for any loss or damage arising from unauthorized use of your account credentials. We reserve the right to disable any account at our discretion if we believe that security has been compromised or these Terms have been violated.</li>
+</ul>
+<h2>NATURE OF THE PLATFORM — PASSIVE CONDUIT AND NEUTRAL HOSTING</h2>
+<h3>Platform Neutrality</h3>
+<ul>
+<li>Time2Eat operates exclusively as a neutral, passive hosting platform and electronic noticeboard for community-sourced food safety observations. The Company:</li>
+<li>Does not generate, create, author, or originate any Community Reports or other UGC;</li>
+<li>Does not independently investigate, verify, validate, or authenticate any Community Report or the accuracy of any information submitted by Users;</li>
+<li>Does not endorse, recommend, adopt, or ratify any User&#x27;s report or opinion;</li>
+<li>Does not make any representations regarding the safety, hygiene, or suitability of any Restaurant;</li>
+<li>Is not a food safety authority, regulatory body, or public health agency.</li>
+</ul>
+<h3>Community-Sourced Data</h3>
+<ul>
+<li>All illness reports and food safety observations displayed on the Platform reflect the personal experiences and opinions of individual registered users only. Any statement displayed on the Platform represents the views of the individual User who submitted it, and not the views of Time2Eat. Users acknowledge and accept that community-sourced reports may be incomplete, unverified, or reflective of individual experiences that may not be generalizable.</li>
+</ul>
+<h3>No Health or Safety Advice</h3>
+<ul>
+<li>Nothing on the Platform constitutes professional health, medical, or food safety advice. Users should not rely on Platform content as a substitute for professional guidance, regulatory inspections, or official food safety assessments. In the event of a serious foodborne illness, Users should seek medical attention and report the incident to the competent government authority in their jurisdiction.</li>
+</ul>
+<h3>Limitation of Platform Liability Under Indonesian ITE Law</h3>
+<ul>
+<li>In accordance with Article 1 and the general principles of electronic information service provider liability under the ITE Law (Law No. 11 of 2008, as amended), Time2Eat acts as an electronic system operator providing hosting services for User-generated content and does not assume editorial responsibility for third-party content posted by Users.</li>
+</ul>
+<h3>Limitation of Platform Liability Under Thai CCA</h3>
+<ul>
+<li>In accordance with Section 15 of the Computer Crime Act B.E. 2550 (2007), as amended, Time2Eat shall not be subject to liability for User-generated content to the extent that we did not knowingly cooperate with, consent to, or facilitate the publication of content constituting a computer crime offense, provided that we take prompt action upon receiving notice of such content through our designated notice-and-takedown procedures.</li>
+</ul>
+<h2>USER OBLIGATIONS AND COMMUNITY REPORTING STANDARDS</h2>
+<h3>Good Faith Reporting Requirement</h3>
+<ul>
+<li>You agree that all Community Reports you submit through the Platform will be:</li>
+<li>Based on your own genuine, first-hand personal experience at the relevant Restaurant;</li>
+<li>Truthful, accurate, and not knowingly false, misleading, or fabricated;</li>
+<li>Submitted in good faith for the legitimate purpose of informing the community about food safety matters;</li>
+<li>Free from any commercial, competitive, retaliatory, or personal vendetta motivation;</li>
+<li>Submitted without expectation of any commercial benefit, compensation, or reward from Time2Eat or any third party.</li>
+</ul>
+<h3>Prohibited Content</h3>
+<ul>
+<li>You must not submit, post, or transmit any Content that:</li>
+<li>Is knowingly false, defamatory, fraudulent, misleading, or fabricated;</li>
+<li>Constitutes a malicious communication, harassment, threat, or intimidation against any Restaurant, individual, or entity;</li>
+<li>Violates or infringes any intellectual property rights, privacy rights, or other rights of any third party;</li>
+<li>Contains or promotes discriminatory, racist, sexist, or hate-based content;</li>
+<li>Contains personal data of third parties without their lawful consent;</li>
+<li>Constitutes unsolicited commercial communications, spam, or advertising;</li>
+<li>Contains malicious code, viruses, or any material designed to disrupt or damage software or systems;</li>
+<li>Violates any applicable law or regulation of Indonesia or Thailand, including but not limited to the ITE Law (Articles 27 and 28) and the CCA (Sections 14 and 15);</li>
+<li>Is submitted for the purpose of harming the reputation of a Restaurant without factual basis.</li>
+</ul>
+<h3>Compliance with Indonesian ITE Law — Article 27(3)</h3>
+<ul>
+<li>You expressly acknowledge that submitting knowingly false content that may defame or harm the reputation of a Restaurant or individual may constitute a criminal offense under Article 27(3) of Indonesia&#x27;s ITE Law (Law No. 11 of 2008 as amended by Law No. 19 of 2016), which prohibits the distribution or transmission of content containing defamatory material through electronic systems.</li>
+</ul>
+<h3>Compliance with Indonesian ITE Law — Article 28(1)</h3>
+<ul>
+<li>You further acknowledge that submitting false news or misleading information that causes consumer loss through electronic systems may constitute a criminal offense under Article 28(1) of the ITE Law. You warrant that all reports you submit are based on genuine personal experience and not fabricated for any purpose.</li>
+</ul>
+<ul>
+<li>Compliance with Thai Computer Crime Act — Sections 14 and 15</li>
+<li>You acknowledge that entering, uploading, or disseminating false computer data in a manner likely to damage third parties or cause public panic may constitute a criminal offense under Section 14 of Thailand&#x27;s Computer Crime Act B.E. 2550 (2007). You agree not to submit content that violates this provision or any other applicable provision of Thai law.</li>
+</ul>
+<h3>Health Data Submission — User Responsibility</h3>
+<ul>
+<li>When submitting a Community Report that includes information about your  personal health experience, including symptoms of foodborne illness, you:</li>
+<li>Expressly and freely consent to the collection, processing, and publication of such health-related data on the Platform, subject to the Privacy Policy;</li>
+<li>Acknowledge that this constitutes special category personal data under both the PDP Law 2022 (Pasal 4) and the Thailand PDPA (Section 26);</li>
+<li>Confirm that you are submitting this information voluntarily and for the legitimate public interest purpose of food safety community reporting;</li>
+<li>Understand that your report may be visible to other registered users of the Platform.</li>
+</ul>
+<h2>INTELLECTUAL PROPERTY AND LICENCE</h2>
+<h3>Platform Intellectual Property</h3>
+<ul>
+<li>All intellectual property rights in the Platform, including but not limited to the Time2Eat name, logo, trademarks, software, design, user interface, and aggregated data compilations, are owned by or licensed to the Company. Nothing in these Terms grants you any right, title, or interest in or to the Platform&#x27;s intellectual property except the limited licence set out below.</li>
+</ul>
+<h3>Limited Licence to Users</h3>
+<ul>
+<li>Subject to your compliance with these Terms, we grant you a limited, non- exclusive, non-transferable, revocable licence to access and use the Platform for  personal, non-commercial purposes only. This licence does not permit you to:</li>
+<li>Copy, reproduce, distribute, or commercially exploit any part of the Platform;</li>
+<li>Scrape, harvest, or systematically extract Platform data;</li>
+<li>Reverse engineer or attempt to extract the source code of the App;</li>
+</ul>
+<h3>Create derivative works based on the Platform or its content.</h3>
+<h3>User Licence Grant</h3>
+<ul>
+<li>By submitting Content to the Platform, you grant Time2Eat a worldwide, royalty-free, non-exclusive, sublicensable licence to host, store, display, reproduce, modify (for formatting purposes only), and distribute your Content on and through the Platform. You retain ownership of your Content, subject to this licence.</li>
+</ul>
+<h3>Representations Regarding Content</h3>
+<ul>
+<li>By submitting Content, you represent and warrant that:</li>
+<li>You own or have sufficient rights to the Content you submit;</li>
+<li>Your Content does not infringe any third-party intellectual property rights; and</li>
+<li>You have obtained all necessary consents for any personal data of third parties referenced in your Content.</li>
+</ul>
+<h2>CONTENT MODERATION AND NOTICE-AND-TAKEDOWN PROCEDURE</h2>
+<h3>Moderation Rights</h3>
+<ul>
+<li>Time2Eat reserves the right, but does not assume the obligation, to review, monitor, edit, remove, or disable access to any Content at our sole discretion and without prior notice, including where we have reasonable grounds to believe that Content:</li>
+<li>Violates these Terms or our Community Guidelines;</li>
+<li>Constitutes defamatory, false, or harmful material;</li>
+<li>Infringes third-party intellectual property or privacy rights;</li>
+<li>Violates applicable Indonesian or Thai law;</li>
+<li>Has been the subject of a valid complaint or takedown request;</li>
+</ul>
+<h3>Endangers public safety or constitutes a public health risk.</h3>
+<h3>Notice-and-Takedown Procedure</h3>
+<ul>
+<li>If you are a Restaurant or any other person and believe that a Community Report or other Content on the Platform is false, defamatory, unlawful, or otherwise violates your rights, you may submit a formal takedown request to: disputes@time2eat.app</li>
+</ul>
+<p>Your takedown request must include the following information:</p>
+<ul>
+<li>Your full legal name and contact details;</li>
+<li>A description of the Content you believe is unlawful or in violation of your rights;</li>
+<li>The specific URL or in-app location of the Content;</li>
+<li>A clear statement of the legal basis for your request (e.g., defamation, false information, privacy violation);</li>
+<li>A declaration that the information provided in your request is accurate to the best of your knowledge.</li>
+</ul>
+<h3>Response Timeline</h3>
+<ul>
+<li>Time2Eat will acknowledge receipt of a valid takedown request within five (5) business days and will aim to complete its initial assessment and take appropriate action within fourteen (14) business days of receipt of a complete request. We reserve the right to request additional information where necessary.</li>
+</ul>
+<h3>Counter-Notice Procedure</h3>
+<ul>
+<li>If your Content has been removed following a takedown request and you believe such removal was in error, you may submit a counter-notice to disputes@time2eat.app within fourteen (14) days of the removal, setting out your reasons and supporting evidence. Time2Eat will review counter-notices in good faith and notify both parties of its decision.</li>
+</ul>
+<h3>No Liability for Moderation Decisions.</h3>
+<ul>
+<li>Time2Eat shall not be liable to any User or third party for any moderation decision taken in good faith, including the removal of Content, the suspension of accounts, or the refusal to publish Content. Moderation decisions are final unless successfully appealed through the procedure set out above.</li>
+</ul>
+<h2>DISPUTE RESOLUTION PROCEDURE FOR RESTAURANT-SPECIFIC REPORTS</h2>
+<h3>Dispute Submission</h3>
+<ul>
+<li>Any Restaurant that is the subject of a Community Report and believes that Report to be false, inaccurate, or in violation of these Terms may initiate a formal dispute process by contacting: disputes@time2eat.app</li>
+</ul>
+<ul>
+<li>The dispute submission should include the Restaurant&#x27;s legal name and registered address, the specific report(s) in dispute, supporting evidence or documentation, and the relief requested.</li>
+</ul>
+<ul>
+<li>Interim Measures</li>
+<li>Where a dispute involves a report that may constitute prima facie false or defamatory content under applicable law, Time2Eat may, at its sole discretion and without prejudice, temporarily flag or restrict access to the disputed report pending resolution of the dispute. Such interim measures do not constitute an admission of liability by Time2Eat.</li>
+</ul>
+<h3>Resolution Process</h3>
+<ul>
+<li>Time2Eat will review all dispute submissions in good faith. Following review, we may take one or more of the following actions:</li>
+<li>Retain the Report without modification;</li>
+<li>Add a disclaimer or contextual note to the Report;</li>
+<li>Remove or permanently delete the Report;</li>
+<li>Refer the matter to the submitting User for comment;</li>
+</ul>
+<h3>Escalate the matter to legal counsel.</h3>
+<p>Time2Eat&#x27;s decision on a dispute shall be final and binding subject only to applicable law and the User&#x27;s rights under law.</p>
+<h3>Effect of Termination on Disputed Reports</h3>
+<ul>
+<li>Where a User&#x27;s account is terminated, whether voluntarily or by the Company, any Community Reports previously submitted by that User shall remain on the Platform unless independently subject to a successful takedown or dispute resolution process. Account termination alone shall not constitute grounds for automatic removal of submitted reports.</li>
+</ul>
+<h2>ACCOUNT SUSPENSION AND TERMINATION</h2>
+<h3>Termination by User</h3>
+<ul>
+<li>You may terminate your account at any time by using the account deletion function within the App or by submitting a written request to support@time2eat.app. Upon termination, your right to access the Platform will cease immediately. Deletion of your account does not automatically result in the deletion of Content you have previously submitted, which will be handled in accordance with our Privacy Policy.</li>
+</ul>
+<h3>Termination or Suspension by Time2Eat</h3>
+<ul>
+<li>Time2Eat reserves the right to suspend or permanently terminate your account, with or without notice, in any of the following circumstances:</li>
+<li>You have breached any provision of these Terms;</li>
+<li>You have submitted Content that is false, defamatory, or in violation of applicable law;</li>
+<li>You have engaged in conduct that is abusive, threatening, or harmful to other Users, Restaurants, or the Company;</li>
+<li>We are required to do so by applicable law, court order, or regulatory directive;</li>
+<li>Your account has been inactive for a continuous period of twenty-four (24) months;</li>
+<li>We reasonably suspect fraudulent activity or misuse of the Platform.</li>
+</ul>
+<h3>Effect of Termination</h3>
+<ul>
+<li>Upon termination of your account:</li>
+<li>Your licence to use the Platform will be immediately revoked;</li>
+<li>You must cease all use of the App and delete it from your device;</li>
+<li>Provisions of these Terms that by their nature should survive termination shall continue in full force and effect, including Sections 4, 5, 9, 10, 11, 12, and 13.</li>
+</ul>
+<h3>Right of Appeal</h3>
+<ul>
+<li>If your account has been terminated by Time2Eat and you believe the termination was in error, you may submit an appeal to support@time2eat.app within thirty (30) days of the termination notice. Appeals will be reviewed within fourteen (14) business days. Time2Eat&#x27;s decision on appeal shall be final.</li>
+</ul>
+<h2>DISCLAIMERS AND LIMITATION OF LIABILITY</h2>
+<h3>Disclaimer of Warranties</h3>
+<h2>THE PLATFORM IS PROVIDED ON AN &quot;AS IS&quot; AND &quot;AS AVAILABLE&quot; BASIS WITHOUT ANY WARRANTY OF ANY KIND, EXPRESS OR IMPLIED. TO THE FULLEST EXTENT PERMITTED BY APPLICABLE LAW, TIME2EAT DISCLAIMS ALL WARRANTIES, INCLUDING BUT NOT LIMITED TO:</h2>
+<ul>
+<li>Implied warranties of merchantability, fitness for a particular purpose, and non-infringement;</li>
+<li>Warranties regarding the accuracy, completeness, reliability, or timeliness of any Content on the Platform;</li>
+<li>Warranties that the Platform will be uninterrupted, error-free, or free of viruses or other harmful components;</li>
+</ul>
+<h3>Warranties regarding the truthfulness or authenticity of any Community Report.</h3>
+<h3>No Verification of Reports</h3>
+<ul>
+<li>Time2Eat expressly disclaims all responsibility for verifying the accuracy, truthfulness, or authenticity of any Community Report or other User-generated Content. Users rely on such Content at their own risk. Time2Eat shall not be liable for any loss, damage, or harm resulting from reliance on any Community Report.</li>
+</ul>
+<h3>Limitation of Liability</h3>
+<h2>TO THE MAXIMUM EXTENT PERMITTED UNDER APPLICABLE INDONESIAN AND THAI LAW, TIME2EAT AND ITS DIRECTORS, OFFICERS, EMPLOYEES, AGENTS, AND AFFILIATES SHALL NOT BE LIABLE FOR:</h2>
+<ul>
+<li>Any indirect, incidental, special, consequential, or punitive damages arising out of or related to your use of or inability to use the Platform;</li>
+<li>Any loss of data, revenue, profits, goodwill, or business opportunities;</li>
+<li>Any damages arising from reliance on any Community Report or other User-generated Content;</li>
+<li>Any damages arising from unauthorized access to or alteration of your account or Content;</li>
+<li>Any damages resulting from the conduct of third parties, including other Users.</li>
+</ul>
+<h3>Essential Basis of the Bargain</h3>
+<ul>
+<li>The disclaimers and limitations of liability in this Section reflect a reasonable and fair allocation of risk between Time2Eat and Users, and form an essential basis of the agreement between the parties. Time2Eat would not provide the Platform on the terms set out in these Terms without these limitations.</li>
+</ul>
+<h2>INDEMNIFICATION</h2>
+<ul>
+<li>You agree to indemnify, defend, and hold harmless Time2Eat and its directors, officers, employees, contractors, agents, licensors, and successors (the &quot;Indemnified Parties&quot;) from and against any and all claims, liabilities, damages, losses, costs, and expenses (including reasonable legal fees and court costs) arising out of or in connection with:</li>
+<li>Your use of the Platform or any breach of these Terms;</li>
+<li>Any Content you submit, post, or transmit through the Platform, including any claim that such Content infringes the rights of a third party or violates applicable law;</li>
+<li>Any false, defamatory, or misleading Community Report submitted by you;</li>
+<li>Your violation of any applicable law, including the ITE Law, PDP Law 2022, CCA, or PDPA;</li>
+<li>Any claim by a third party that your actions or Content caused harm to their rights or reputation.</li>
+</ul>
+<p>We reserve the right, at our own expense, to assume the exclusive defence and control of any matter subject to indemnification by you, and you agree to cooperate with our defence of such claims.</p>
+<h2>GOOGLE PLAY AND APP STORE COMPLIANCE</h2>
+<h3>Google Play — Compliance</h3>
+<ul>
+<li>The Platform is distributed through the Google Play Store and is subject to Google&#x27;s Developer Program Policies. In particular:</li>
+<li>The App complies with Google Play&#x27;s User-Generated Content (UGC) policies, including the requirement to provide in-app mechanisms for users to report abusive or illegal content;</li>
+</ul>
+<ul>
+<li>The App complies with Google Play&#x27;s Sensitive Information policies regarding health-related data. Community Reports constituting health information are processed with explicit user consent and in accordance with applicable data protection law;</li>
+</ul>
+<ul>
+<li>The App&#x27;s content moderation mechanisms are designed to comply with Google Play&#x27;s policies on harmful content, deceptive practices, and hate speech;</li>
+</ul>
+<ul>
+<li>Time2Eat provides a clear in-app reporting mechanism enabling Users to flag Content they believe violates these Terms or applicable law.</li>
+</ul>
+<h3>Apple App Store — Compliance</h3>
+<ul>
+<li>The Platform is distributed through the Apple App Store and is subject to Apple&#x27;s App Store Review Guidelines. In particular:</li>
+<li>The App complies with Apple&#x27;s guidelines on User-Generated Content, including the requirement to filter objectionable material and provide a mechanism to report offensive content;</li>
+<li>The App complies with Apple&#x27;s guidelines on privacy and data use, including requirements for obtaining explicit user consent prior to collecting or processing sensitive health data;</li>
+<li>The App complies with Apple&#x27;s Health and Healthcare guidelines, to the extent applicable to community food safety reporting;</li>
+<li>Time2Eat&#x27;s data handling practices with respect to health-related reports comply with Apple&#x27;s App Privacy requirements, including accurate disclosure in the App Privacy Nutrition Label.</li>
+</ul>
+<h3>Third-Party App Store Terms</h3>
+<ul>
+<li>Your download and use of the App through the Google Play Store or Apple App Store is also subject to the terms and conditions of those platforms. Time2Eat is not responsible for the terms imposed by third-party app stores. In the event of a conflict between these Terms and the applicable app store terms, these Terms shall govern to the extent of that conflict as between you and Time2Eat.</li>
+</ul>
+<h3>Apple as Third-Party Beneficiary</h3>
+<ul>
+<li>Notwithstanding the foregoing, if you download the App from the Apple App Store, Apple, Inc. shall be a third-party beneficiary of these Terms solely for the purpose of enforcing terms that are expressly required by Apple as a condition of distribution. Apple has no obligation to provide any maintenance or support services for the App.</li>
+</ul>
+<h2>GOVERNING LAW AND DISPUTE RESOLUTION</h2>
+<h3>Governing Law — Indonesian Users</h3>
+<ul>
+<li>For Users accessing the Platform from Indonesia, these Terms shall be governed by and construed in accordance with the laws of the Republic of Indonesia, including the ITE Law (Law No. 11 of 2008), the PDP Law (Law No. 27 of 2022), and other applicable Indonesian legislation.</li>
+</ul>
+<h3>Governing Law — Thai Users</h3>
+<ul>
+<li>For Users accessing the Platform from Thailand, these Terms shall be governed by and construed in accordance with the laws of the Kingdom of Thailand, including the CCA (B.E. 2550) and the PDPA (B.E. 2562), and other applicable Thai legislation.</li>
+</ul>
+<h3>Dispute Resolution</h3>
+<ul>
+<li>In the event of any dispute, claim, or controversy arising out of or in connection with these Terms or your use of the Platform, the parties agree to first attempt to resolve the dispute through good faith negotiation. Any formal dispute submission should be directed to disputes@time2eat.app in the first instance.</li>
+</ul>
+<h3>Jurisdiction</h3>
+<ul>
+<li>If a dispute cannot be resolved through negotiation within thirty (30) days of written notice, either party may submit the matter to the competent courts of:</li>
+<li>The Republic of Indonesia, for Indonesian Users; or</li>
+<li>The Kingdom of Thailand, for Thai Users.</li>
+</ul>
+<p>Nothing in this Section prevents Time2Eat from seeking urgent injunctive or other equitable relief from any competent court where necessary to protect its intellectual property rights or prevent imminent harm.</p>
+<h2>GENERAL PROVISIONS</h2>
+<h3>Amendments</h3>
+<ul>
+<li>Time2Eat reserves the right to modify these Terms at any time. We will provide notice of material changes by posting the updated Terms in the App and updating the &quot;Last Updated&quot; date at the top of this document. Where required by applicable law, we will seek your consent to material changes. Your continued use of the Platform after the effective date of any amendment constitutes your acceptance of the revised Terms.</li>
+</ul>
+<h3>Severability</h3>
+<ul>
+<li>If any provision of these Terms is found to be invalid, illegal, or unenforceable under applicable law, that provision shall be deemed modified to the minimum extent necessary to make it enforceable, and the remaining provisions shall continue in full force and effect.</li>
+</ul>
+<h3>Entire Agreement</h3>
+<ul>
+<li>These Terms, together with the Privacy Policy and any other documents incorporated by reference, constitute the entire agreement between you and Time2Eat with respect to the subject matter hereof, and supersede all prior or contemporaneous representations, understandings, agreements, or communications.</li>
+</ul>
+<h3>Waiver</h3>
+<ul>
+<li>No failure or delay by Time2Eat in exercising any right or remedy under these Terms shall constitute a waiver of that right or remedy. Any waiver must be in writing and signed by an authorised representative of Time2Eat.</li>
+</ul>
+<h3>Assignment</h3>
+<ul>
+<li>You may not assign or transfer your rights or obligations under these Terms without our prior written consent. Time2Eat may assign these Terms, in whole or in part, to any affiliate, successor entity, or acquirer in connection with a merger, acquisition, or sale of all or substantially all of its assets, without your consent.</li>
+</ul>
+<ul>
+<li>Force Majeure</li>
+<li>Time2Eat shall not be liable for any failure or delay in performance due to circumstances beyond our reasonable control, including acts of God, natural disasters, governmental actions, pandemic or epidemic events, civil unrest, or telecommunications failures.</li>
+</ul>
+<h3>Language</h3>
+<ul>
+<li>These Terms are drafted in the English language. In the event that these Terms are translated into Indonesian (Bahasa Indonesia) or Thai, and there is a conflict or inconsistency between the English version and any translated version, the English language version shall prevail to the extent permitted by applicable law.</li>
+</ul>
+<p>CONTACT INFORMATION</p>
+<p>If you have any questions, concerns, or requests relating to these Terms, please contact us at:</p>
+<p>Time2Eat</p>
+<p>General Enquiries: support@time2eat.app</p>
+<p>Disputes &amp; Takedown: disputes@time2eat.app</p>
+<p>Privacy &amp; Data Rights: privacy@time2eat.app</p>
+<p>ACCEPTANCE OF TERMS</p>
+<p>BY DOWNLOADING, INSTALLING, OR USING THE TIME2EAT APP, YOU ACKNOWLEDGE THAT YOU HAVE READ THESE TERMS OF SERVICE IN THEIR ENTIRETY, THAT YOU UNDERSTAND THEM, AND THAT YOU AGREE TO BE BOUND BY ALL OF THEIR TERMS AND CONDITIONS.</p>
+<p>IF YOU ARE USING THE APP ON BEHALF OF A LEGAL ENTITY, YOU REPRESENT THAT YOU HAVE THE AUTHORITY TO BIND THAT ENTITY TO THESE TERMS.</p>
+<p>© Time2Eat. All rights reserved.</p>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>© 2025 Time2Eat · Made with ❤️ for travelers</p>
+    <p style="margin-top: 8px;">
+      <a href="/privacy-policy.html">Privacy Policy</a>
+      ·
+      <a href="/terms-of-service.html">Terms of Service</a>
+    </p>
+  </footer>
+
+</body>
+</html>

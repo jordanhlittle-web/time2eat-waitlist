@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy · Time2Eat</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg:     #030712;
+      --card:   #1F2937;
+      --green:  #39FF14;
+      --pink:   #FF00FF;
+      --white:  #FFFFFF;
+      --gray:   #9CA3AF;
+      --border: #374151;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background-color: var(--bg);
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    .glow {
+      position: fixed;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 0;
+      filter: blur(90px);
+    }
+    .glow-green {
+      width: 500px; height: 500px;
+      top: -150px; left: -150px;
+      background: radial-gradient(circle, rgba(57,255,20,0.07) 0%, transparent 65%);
+    }
+    .glow-pink {
+      width: 500px; height: 500px;
+      bottom: -150px; right: -150px;
+      background: radial-gradient(circle, rgba(255,0,255,0.07) 0%, transparent 65%);
+    }
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 52px 24px 100px;
+      position: relative;
+      z-index: 1;
+    }
+    /* Logo */
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 48px;
+      text-decoration: none;
+    }
+    .logo-wordmark {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 24px;
+      letter-spacing: -0.6px;
+      color: var(--white);
+    }
+    .logo-wordmark .accent { color: var(--pink); }
+    /* Header */
+    .page-header {
+      margin-bottom: 40px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--border);
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--gray);
+      font-size: 13px;
+      text-decoration: none;
+      margin-bottom: 24px;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: var(--white); }
+    .page-header h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: clamp(26px, 5vw, 38px);
+      line-height: 1.15;
+      margin-bottom: 10px;
+    }
+    .effective-date {
+      font-size: 13px;
+      color: var(--gray);
+    }
+    /* Content */
+    .legal-content h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing: 0.06em;
+      color: var(--green);
+      text-transform: uppercase;
+      margin: 40px 0 12px;
+    }
+    .legal-content h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600;
+      font-size: 15px;
+      color: var(--white);
+      margin: 24px 0 8px;
+    }
+    .legal-content p {
+      font-size: 14.5px;
+      color: var(--gray);
+      line-height: 1.75;
+      margin-bottom: 14px;
+    }
+    .legal-content ul {
+      margin: 8px 0 16px 20px;
+      list-style: disc;
+    }
+    .legal-content li {
+      font-size: 14.5px;
+      color: var(--gray);
+      line-height: 1.7;
+      margin-bottom: 6px;
+    }
+    footer {
+      text-align: center;
+      margin-top: 60px;
+      padding-top: 32px;
+      border-top: 1px solid var(--border);
+      font-size: 12.5px;
+      color: #374151;
+    }
+    footer a {
+      color: #4B5563;
+      text-decoration: none;
+      margin: 0 8px;
+    }
+    footer a:hover { color: var(--gray); }
+    @media (max-width: 440px) {
+      .container { padding: 36px 16px 80px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="glow glow-green" aria-hidden="true"></div>
+  <div class="glow glow-pink"  aria-hidden="true"></div>
+
+  <div class="container">
+
+    <a href="/" class="logo">
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2" stroke="#FF00FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <line x1="7" y1="11" x2="7" y2="22" stroke="#FF00FF" stroke-width="2" stroke-linecap="round"/>
+        <path d="M21 2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3V2z" stroke="#FF00FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <line x1="21" y1="15" x2="21" y2="22" stroke="#FF00FF" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <div class="logo-wordmark">Time<span class="accent">2</span>Eat</div>
+    </a>
+
+    <div class="page-header">
+      <a href="/" class="back-link">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
+        Back to waitlist
+      </a>
+      <h1>Privacy Policy</h1>
+      <p class="effective-date">Effective Date: March 24th 2026</p>
+    </div>
+
+    <div class="legal-content">
+<p>This Privacy Policy (&quot;Policy&quot;) describes how Time2Eat (&quot;Company&quot;, &quot;we&quot;, &quot;us&quot;, or &quot;our&quot;) collects, uses, processes, stores, discloses, and protects personal data in connection with your use of the Time2Eat mobile application and all associated services (collectively, the &quot;Platform&quot; or &quot;App&quot;).</p>
+<p>Time2Eat operates as a community food safety platform where registered users submit illness reports and food safety observations about restaurants in Indonesia (with primary operations in Bali) and Thailand. Because the Platform processes personal data, including health-related data, across two distinct legal jurisdictions, this Policy is carefully structured to comply with both:</p>
+<ul>
+<li>The Indonesian Personal Data Protection Law, Law No. 27 of 2022 (&quot;PDP Law&quot;); and</li>
+<li>The Thailand Personal Data Protection Act B.E. 2562 (2019), as amended (&quot;PDPA&quot;).</li>
+</ul>
+<p>PLEASE READ THIS POLICY CAREFULLY. By registering for an account or using the Platform, you confirm that you have read and understood this Policy and that you consent to the processing of your personal data as described herein. Where explicit consent is required by law, particularly for the processing of health-related special category data; we will seek your separate, specific consent at the point of collection.</p>
+<p>For Indonesian Users: This Policy is issued in accordance with Law No. 27 of 2022 on Personal Data Protection and other applicable regulations of the Republic of Indonesia.</p>
+<p>For Thai Users: This Policy is issued in accordance with the Personal Data Protection Act B.E. 2562 (2019) and other applicable regulations of the Kingdom of Thailand.</p>
+<h2>DEFINITIONS</h2>
+<ul>
+<li>&quot;Personal Data&quot; means any information relating to an identified or identifiable natural person, including name, email address, IP address, device identifiers, location data, and any health-related information, as defined under the PDP Law 2022 and the PDPA.</li>
+</ul>
+<ul>
+<li>&quot;Special Category Data&quot; or &quot;Sensitive Personal Data&quot; means personal data that is subject to heightened protection under applicable law, including data relating to health, illness, medical history, racial or ethnic origin, political opinions, religious beliefs, sexual orientation, biometric data, and criminal records.</li>
+</ul>
+<ul>
+<li>&quot;Health Data&quot; means any personal data pertaining to the physical health, medical condition, symptoms, or foodborne illness experiences of a data subject, as submitted through the Platform in a Community Report.</li>
+</ul>
+<ul>
+<li>&quot;Community Report&quot; means a user-submitted report, rating, observation, or description of a food safety incident or foodborne illness experience at a restaurant, submitted through the Platform.</li>
+</ul>
+<ul>
+<li>&quot;Data Controller&quot; means Time2Eat, which determines the purposes and means of the processing of personal data collected through the Platform.</li>
+</ul>
+<ul>
+<li>&quot;Data Processor&quot; means any third-party entity that processes personal data on behalf of Time2Eat pursuant to a written agreement.</li>
+</ul>
+<ul>
+<li>&quot;Processing&quot; means any operation or set of operations performed on personal data, including collection, recording, organisation, storage, adaptation, retrieval, use, disclosure, transmission, dissemination, restriction, erasure, or destruction.</li>
+</ul>
+<ul>
+<li>&quot;PDP Law&quot; means Indonesia&#x27;s Law No. 27 of 2022 on Personal Data Protection.</li>
+</ul>
+<ul>
+<li>&quot;PDPA&quot; means Thailand&#x27;s Personal Data Protection Act B.E. 2562 (2019), as amended.</li>
+</ul>
+<ul>
+<li>&quot;User&quot; means any natural person who accesses, registers on, or uses the Platform.</li>
+</ul>
+<h2>IDENTITY AND CONTACT DETAILS OF THE DATA CONTROLLER</h2>
+<ul>
+<li>The Data Controller responsible for the processing of your personal data under this Policy is:</li>
+</ul>
+<p>Time2Eat</p>
+<p>Community Food Safety Platform</p>
+<p>Primary Operations: Bali, Indonesia | Secondary Operations: Thailand</p>
+<p>Privacy Enquiries: privacy@time2eat.app</p>
+<p>Disputes &amp; Takedown: disputes@time2eat.app</p>
+<p>General Support: support@time2eat.app</p>
+<p>If you have any questions, concerns, or requests regarding this Policy or the processing of your personal data, please contact us at privacy@time2eat.app. We aim to respond to all privacy-related enquiries within fourteen (14) business days.</p>
+<h2>CATEGORIES OF PERSONAL DATA WE COLLECT</h2>
+<h3>Account and Registration Data</h3>
+<ul>
+<li>When you register for a Time2Eat account, we collect the following personal data:</li>
+<li>Full name or username;</li>
+<li>Email address;</li>
+<li>Password (stored in encrypted, hashed form — never in plaintext);</li>
+<li>Date of account creation;</li>
+</ul>
+<h3>Account preferences and settings.</h3>
+<h3>Community Report Data (Including Health Data)</h3>
+<ul>
+<li>When you submit a Community Report through the Platform, we collect:</li>
+<li>The content of your report, including descriptions of symptoms, illness, or food safety observations;</li>
+<li>The name and location of the Restaurant to which the report relates;</li>
+<li>The date and time of the reported incident;</li>
+<li>Any photographs or images you choose to attach;</li>
+<li>Your self-reported health symptoms, where included in your report.</li>
+</ul>
+<p>Important: Descriptions of foodborne illness symptoms and health experiences constitute Health Data and Special Category Data under both the PDP Law 2022 (Pasal 4) and the PDPA (Section 26). We process this data only with your explicit, informed consent, as provided at the point of submission.</p>
+<h3>Device and Technical Data</h3>
+<ul>
+<li>When you access the Platform, we automatically collect certain technical data, including:</li>
+<li>Device type, model, and operating system;</li>
+<li>Unique device identifiers (e.g., advertising ID, device ID);</li>
+<li>App version and build number;</li>
+<li>Internet Protocol (IP) address;</li>
+<li>Mobile network information;</li>
+<li>App crash logs and diagnostic data;</li>
+</ul>
+<h3>Time zone and language settings.</h3>
+<h3>Location Data</h3>
+<ul>
+<li>With your permission, we may collect approximate or precise location data to assist you in identifying nearby restaurants and to associate Community Reports with geographic locations. You may disable location access at any time through your device settings, though this may limit certain Platform features.</li>
+</ul>
+<h3>Usage and Analytics Data</h3>
+<ul>
+<li>We collect data about how you interact with the Platform, including:</li>
+<li>Pages and features accessed within the App;</li>
+<li>Search queries entered;</li>
+<li>Time and duration of sessions;</li>
+<li>Reports viewed, submitted, or bookmarked;</li>
+<li>In-app actions and navigation patterns.</li>
+</ul>
+<h3>Communications Data</h3>
+<ul>
+<li>If you contact us via email or through any support channel, we will collect and retain the content of your communications, including your email address, the subject matter of your enquiry, and any attachments provided.</li>
+</ul>
+<h3>Data We Do Not Collect</h3>
+<ul>
+<li>We do not collect or process the following categories of data unless separately and expressly required for a specific, disclosed purpose:</li>
+<li>Payment card information or banking details;</li>
+<li>Government-issued identification numbers;</li>
+<li>Biometric data;</li>
+<li>Data revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, or trade union membership, except where voluntarily included by a User in a Community Report (in which case the provisions of Section 5 apply).</li>
+</ul>
+<h2>PURPOSES AND LEGAL BASES FOR PROCESSING</h2>
+<h3>Overview</h3>
+<ul>
+<li>We process your personal data only for specified, explicit, and legitimate purposes, and only where we have a valid legal basis for doing so under applicable law. The table below summarises our primary processing activities, purposes, and corresponding legal bases under both the PDP Law 2022 and the PDPA.</li>
+</ul>
+<h3>Account Registration and Platform Access</h3>
+<ul>
+<li>We process your registration data — including your name, email address, and account credentials — solely to create and manage your account and authenticate your identity when you log in. This processing is necessary to perform the contract between us: without it, we simply cannot provide you with access to the Platform. It is carried out on the basis of contractual necessity under Article 20(b) of the Indonesian PDP Law 2022 and Section 24(3) of the Thailand PDPA.</li>
+</ul>
+<h3>Processing of Community Reports</h3>
+<ul>
+<li>When you submit a Community Report, we receive, store, and display it on the Platform so that other registered Users can access it for food safety purposes. This is the core function the Platform exists to serve, and processing your report data is inseparable from delivering it. We do this on the basis of legitimate interests under the Indonesian PDP Law 2022 and the Thailand PDPA — the legitimate interest being the community&#x27;s access to honest, first-hand food safety information, which we consider reasonable and proportionate when balanced against your rights and interests as a User.</li>
+</ul>
+<h3>Processing of Health Data in Community Reports</h3>
+<ul>
+<li>If you choose to include descriptions of foodborne illness symptoms or other health-related information in a Community Report, that data is classified as Special Category Data under both Indonesian and Thai law and is therefore subject to a higher level of protection. We will never process this data without your explicit, specific, and informed consent, which we obtain separately at the point of submission — distinct from your general acceptance of the Terms of Service and withdrawable by you at any time. To the extent that the community food safety purpose of the Platform engages the public interest in public health protection.</li>
+</ul>
+<h3>Platform Safety, Security, and Moderation</h3>
+<ul>
+<li>We process certain user data to keep the Platform safe, honest, and functional for everyone on it. This includes detecting and addressing abuse, fraud, false reports, violations of our Terms of Service, and any content or conduct that poses a risk to the safety of Users, Restaurants, or the wider public.</li>
+</ul>
+<h3>Analytics and Platform Improvement</h3>
+<ul>
+<li>We analyse how Users interact with the Platform — including which features are used, how sessions flow, and where technical issues arise — in order to fix bugs, improve performance, and build a better experience over time. This is a standard and proportionate use of data that any responsibly operated digital platform carries out, and we do so on the basis of legitimate interests under the PDP Law 2022 and the PDPA, balanced against your right not to have your data used in ways that are unexpected or intrusive.</li>
+</ul>
+<h3>Legal Compliance and Regulatory Obligations</h3>
+<ul>
+<li>There are circumstances where we are legally required to process or disclose your personal data — for example, to respond to a valid court order, cooperate with a government investigation, or meet our obligations under applicable data protection, electronic transactions, or cybercrime legislation in Indonesia and Thailand. In those situations, we have no discretion to refuse, and processing is carried out purely to fulfil that legal obligation rather than for any commercial or operational purpose of our own.</li>
+</ul>
+<h3>Communications and Support</h3>
+<ul>
+<li>When you reach out to us with a question, a technical issue, or a dispute, we process your contact details and the content of your communication in order to respond helpfully and resolve your concern. We also use your contact information to send you service-related notifications — such as updates to these Terms or this Policy, or important changes to how the Platform operates. We do this partly on the basis of your consent and partly because keeping you informed about the service you are using is a legitimate and reasonable interest that any responsibly operated platform would act on.</li>
+</ul>
+<h2>SPECIAL CATEGORY DATA — HEALTH DATA FRAMEWORK</h2>
+<h3>Classification as Special Category Data</h3>
+<ul>
+<li>Illness reports and descriptions of foodborne illness symptoms submitted through the Platform constitute Health Data, which is classified as special category personal data (sensitive personal data) under both:</li>
+<li>Article 4 of the Indonesian PDP Law 2022, which identifies health and medical data as a category of specific personal data requiring heightened protection; and</li>
+<li>Section 26 of the Thailand PDPA, which explicitly lists health data as sensitive personal data subject to stricter processing requirements. In recognition of the sensitivity of this data, we will only collect your health and medical information where you have freely and voluntarily chosen to provide it — no report requires you to disclose personal health details, and if you have previously consented to the collection of such data, you may</li>
+</ul>
+<ul>
+<li>withdraw that consent and opt out at any time, for any reason, entirely at your own discretion, with no consequence to your continued use of the Platform.</li>
+</ul>
+<h3>Explicit Consent Mechanism</h3>
+<ul>
+<li>Before you submit any Community Report that contains health-related information, the App will present you with a clear, plain-language consent notice that:</li>
+<li>Identifies the categories of health data being collected;</li>
+<li>Explains the specific purpose for which your health data will be processed;</li>
+<li>Explains who may have access to your health data on the Platform;</li>
+<li>Informs you of your right to withdraw consent at any time;</li>
+<li>Is separate and distinct from your general acceptance of the Terms of Service.</li>
+</ul>
+<p>Your explicit, affirmative consent will be recorded electronically with a timestamp. We will not process your health data without this separate explicit consent.</p>
+<h3>Purpose Limitation</h3>
+<ul>
+<li>Health data collected through Community Reports will be processed only for the following specific purposes:</li>
+<li>Displaying your Community Report to other registered Users of the Platform for food safety information purposes;</li>
+<li>Enabling the moderation and dispute resolution procedures described in our Terms of Service;</li>
+<li>Complying with applicable legal obligations, including lawful government requests;</li>
+</ul>
+<h3>Detecting and preventing fraudulent or abusive reports; and</h3>
+<ul>
+<li>Aggregated, anonymised analysis to identify food safety trends (where data is irreversibly anonymised prior to any such analysis).</li>
+</ul>
+<p>We will not use your health data for any other purpose, including direct marketing, profiling for commercial purposes, or sale to third parties.</p>
+<h3>Data Minimisation</h3>
+<ul>
+<li>We apply the principle of data minimisation to health data. We collect only the health-related information you voluntarily include in your Community Report. We do not require you to provide a medical diagnosis, clinical records, or any information beyond what you choose to disclose about your personal experience. You are not required to include health data in a Community Report; you may submit a report relating to general hygiene or food safety observations without disclosing personal health information.</li>
+</ul>
+<h3>Withdrawal of Consent for Health Data</h3>
+<ul>
+<li>You may withdraw your explicit consent to the processing of your health data at any time by:</li>
+<li>Using the account settings function within the App to delete specific Community Reports; or</li>
+<li>Contacting us at privacy@time2eat.app with a request to delete or anonymise your health data.</li>
+</ul>
+<p>Withdrawal of consent will not affect the lawfulness of processing that occurred prior to withdrawal. Where a Community Report containing your health data has been publicly visible on the Platform and may have been viewed by other Users prior to your withdrawal request, we cannot retroactively remove that information from those Users&#x27; awareness, but we will remove the data from the Platform promptly upon request. Once consent is withdrawn we are required to cease all processing and delete your personal data within 72 hours and under the Thailand PDPA, we are required to delete, destroy, or anonymise your personal data — including any copies and backups — without delay and within 90 days of receiving your request.</p>
+<h2>HOW WE COLLECT PERSONAL DATA</h2>
+<h3>Data Provided Directly by You</h3>
+<ul>
+<li>We collect personal data that you actively provide to us, including:</li>
+<li>Information entered during account registration;</li>
+<li>Community Reports submitted through the App;</li>
+<li>Photographs or images you choose to upload;</li>
+<li>Communications you send to our support or disputes email addresses;</li>
+</ul>
+<h3>Preferences and settings you configure within the App.</h3>
+<h3>Data Collected Automatically</h3>
+<ul>
+<li>When you access or use the Platform, certain data is collected automatically through cookies, software development kits (SDKs), and similar technologies, including device identifiers, IP addresses, session data, and usage analytics. This data is collected to operate, maintain, and improve the Platform.</li>
+</ul>
+<h3>Data from Third-Party Sources</h3>
+<ul>
+<li>Where you choose to register or log in to the Platform using a third-party authentication service (such as Google Sign-In or Apple Sign-In), we will receive certain account data from that service in accordance with your permissions and the third party&#x27;s privacy policy. We do not control the data practices of third-party authentication providers.</li>
+</ul>
+<h3>Location Data</h3>
+<ul>
+<li>Location data is collected only with your explicit prior permission, as requested through your device&#x27;s operating system permissions prompt. You may revoke location permissions at any time through your device settings.</li>
+</ul>
+<h2>DISCLOSURE OF PERSONAL DATA TO THIRD PARTIES</h2>
+<h3>Principle of Restricted Disclosure</h3>
+<ul>
+<li>We do not sell, rent, trade, or otherwise disclose your personal data to third parties for their own commercial purposes. Where we do share your data, it is only with third-party service providers — known as Data Processors — that we engage specifically to help us operate the Platform, including cloud infrastructure and hosting providers, analytics services, push notification providers, customer support platforms, and fraud detection and security monitoring services. Every Data Processor we work with is contractually bound to process your personal data solely on our instructions, to maintain appropriate technical and organisational security measures, and to comply fully with the PDP Law 2022 and the PDPA and we will not engage any service provider that cannot demonstrate sufficient guarantees of that compliance.</li>
+</ul>
+<h3>Business Transfers</h3>
+<ul>
+<li>In the event of a merger, acquisition, restructuring, or sale of all or substantially all of Time2Eat&#x27;s assets, your personal data may be transferred to the acquiring entity as part of that transaction. We will provide notice of any such transfer and ensure that the receiving entity is bound by privacy obligations no less protective than those in this Policy.</li>
+</ul>
+<h3>Aggregated and Anonymised Data</h3>
+<ul>
+<li>We may share aggregated, anonymised data that cannot reasonably be used to identify any individual with third parties for research, public health, or commercial purposes. Such data is not personal data and is not subject to the restrictions in this Policy.</li>
+</ul>
+<h2>CROSS-BORDER DATA TRANSFERS</h2>
+<h3>Nature of Cross-Border Transfers</h3>
+<ul>
+<li>Time2Eat&#x27;s Platform infrastructure may involve the storage or processing of your personal data on servers located outside Indonesia and Thailand, including through cloud service providers whose infrastructure operates across multiple jurisdictions. Such transfers may occur to countries that do not have data protection laws equivalent to those of Indonesia or Thailand. This will be done as per the applicable laws of Indonesia PDP law and Thailand PDPA Law.</li>
+</ul>
+<h3>Safeguards</h3>
+<ul>
+<li>Regardless of where your personal data is processed, Time2Eat implements consistent technical and organisational security measures to protect it in accordance with this Policy. Our Data Processing Agreements with third-party service providers impose data protection obligations that mirror the requirements of both the PDP Law 2022 and the PDPA.</li>
+</ul>
+<h2>DATA RETENTION PERIODS</h2>
+<h3>General Principle</h3>
+<ul>
+<li>We retain your personal data only for as long as is necessary to fulfil the purposes for which it was collected, to comply with legal obligations, to resolve disputes, and to enforce our agreements. When personal data is no longer required for any of these purposes, it will be securely deleted or irreversibly anonymised.</li>
+</ul>
+<h3>Retention Schedule</h3>
+<ul>
+<li>Account Registration Data: Retained for the duration of your active account, plus a period of thirty-six (36) months following account closure or deletion. This retention period is maintained to address any retrospective legal claims, disputes, or regulatory enquiries arising from your use of the Platform.</li>
+</ul>
+<ul>
+<li>Community Reports (General): Retained for a period of sixty (60) months (five years) from the date of submission, or until deletion is requested through the applicable procedure, whichever is earlier. Retention is maintained to preserve the integrity of the community food safety record and to enable dispute resolution processes.</li>
+</ul>
+<ul>
+<li>Community Reports Containing Health Data: Retained for the same period as general Community Reports (60 months from submission), subject to the right of withdrawal of consent described in Section 5.5. Upon a valid withdrawal request, health data will be deleted or anonymised within 72 hours for Indonesian Users, in accordance with the PDP Law 2022, and within 90 days for Thai Users, in accordance with the PDPA and the PDPC Notification on Criteria for Deletion, Destruction and De-identification. The stricter Indonesian timeframe will apply where a User&#x27;s jurisdiction cannot be determined.</li>
+</ul>
+<ul>
+<li>Device and Technical Data: Retained for a period of twenty-four (24) months from collection, after which it is deleted or anonymised for analytical purposes.</li>
+</ul>
+<ul>
+<li>Location Data: Precise location data, where collected, is retained only for the duration of the session in which it is used and is not stored beyond that session. Approximate location data associated with a Community Report (e.g., geographic region) is retained for the same period as the associated Community Report.</li>
+</ul>
+<ul>
+<li>Communications and Support Data: Retained for a period of thirty-six (36) months from the date of your last communication with us, or longer where required for active legal proceedings or regulatory compliance.</li>
+</ul>
+<ul>
+<li>Analytics and Usage Data: Anonymised or aggregated analytics data may be retained indefinitely as it can no longer identify you as an individual.</li>
+</ul>
+<h3>Extended Retention for Legal Proceedings</h3>
+<ul>
+<li>Where personal data is relevant to an ongoing or reasonably anticipated legal proceeding, regulatory investigation, or dispute resolution process, we may retain that data beyond the periods stated above until the conclusion of such proceedings. We will inform you of any such extended retention where we are permitted to do so by law.</li>
+</ul>
+<h3>Deletion Procedures</h3>
+<ul>
+<li>Upon expiry of the applicable retention period, personal data will be securely deleted from our active systems. Residual copies that may exist in backup systems will be deleted in the ordinary course of our backup rotation schedule, which operates on a cycle not exceeding ninety (90) days.</li>
+</ul>
+<h2>DATA SECURITY</h2>
+<h3>Security Measures</h3>
+<ul>
+<li>Time2Eat implements appropriate technical and organisational security measures designed to protect your personal data against unauthorised access, accidental loss, destruction, alteration, or disclosure. These measures include:</li>
+<li>Encryption of data in transit using Transport Layer Security (TLS);</li>
+<li>Encryption of data at rest using industry-standard encryption protocols;</li>
+<li>Storage of passwords in hashed, salted form using robust cryptographic algorithms;</li>
+<li>Access controls limiting employee and contractor access to personal data on a need-to-know basis;</li>
+<li>Regular security audits and vulnerability assessments;</li>
+<li>Multi-factor authentication for administrative access to systems containing personal data;</li>
+<li>Incident response procedures for detecting and responding to data security events.</li>
+</ul>
+<h3>Limitations of Security</h3>
+<ul>
+<li>While we apply industry-standard security practices, no method of electronic transmission or storage is completely secure. We cannot guarantee absolute security of your personal data. You are responsible for maintaining the security of your account credentials and for notifying us promptly if you suspect any unauthorised access to your account.</li>
+</ul>
+<h3>Data Breach Notification</h3>
+<ul>
+<li>Indonesian Users: In the event of a personal data breach that is likely to pose a high risk to your rights and freedoms, we will notify the relevant Indonesian supervisory authority and, where required, affected Users, within the timeframe prescribed by the PDP Law 2022 and applicable implementing regulations.</li>
+</ul>
+<ul>
+<li>Thai Users: In the event of a personal data breach, we will notify the Office of the Personal Data Protection Committee (PDPC) without delay and, where the breach is likely to result in high risk to you, we will also notify you as soon as reasonably practicable.</li>
+</ul>
+<h2>YOUR DATA SUBJECT RIGHTS</h2>
+<h3>Overview of Rights</h3>
+<ul>
+<li>Subject to applicable law, you have the following rights in relation to your personal data held by Time2Eat. The rights available to you may vary depending on whether you are an Indonesian User (governed by the PDP Law 2022) or a Thai User (governed by the PDPA), as described below.</li>
+</ul>
+<h3>Right of Access</h3>
+<ul>
+<li>Both Jurisdictions: You have the right to obtain confirmation of whether we process your personal data, and to receive a copy of the personal data we hold about you, together with information about how it is processed. You may exercise this right by submitting a request to privacy@time2eat.app.</li>
+</ul>
+<h3>Right to Rectification</h3>
+<ul>
+<li>Both Jurisdictions: You have the right to request the correction or completion of inaccurate, incomplete, or misleading personal data we hold about you. Requests for rectification of account data can also be made directly within the App&#x27;s account settings.</li>
+</ul>
+<h3>Right to Erasure (Right to be Forgotten)</h3>
+<ul>
+<li>PDP Law 2022 (Indonesia): You have the right to request deletion of your personal data where it is no longer necessary for the purpose for which it was collected, where you have withdrawn consent, or where processing is unlawful, subject to any overriding legal obligations requiring retention.</li>
+</ul>
+<ul>
+<li>PDPA (Thailand): You have the right to request deletion or destruction of your personal data, subject to applicable exceptions including legal obligations, the exercise of legal claims, and public interest grounds.</li>
+</ul>
+<h3>Right to Restriction of Processing</h3>
+<ul>
+<li>PDPA (Thailand): You have the right to request restriction of the processing of your personal data in certain circumstances, including where you contest the accuracy of the data or have objected to processing pending verification of legitimate grounds.</li>
+</ul>
+<ul>
+<li>PDP Law 2022 (Indonesia): Equivalent rights to restrict or limit processing are provided under the PDP Law 2022 where processing lacks a lawful basis or where you contest the accuracy of the data.</li>
+</ul>
+<h3>Right to Data Portability</h3>
+<ul>
+<li>Both Jurisdictions: Where technically feasible and to the extent required by applicable law, you have the right to receive your personal data in a structured, commonly used, and machine-readable format, and to request that we transmit that data to another data controller.</li>
+</ul>
+<h3>Right to Object to Processing</h3>
+<ul>
+<li>Both Jurisdictions: You have the right to object to the processing of your personal data where that processing is based on legitimate interests, including profiling. Where you object, we will cease processing unless we can demonstrate compelling legitimate grounds that override your interests, rights, and freedoms, or where processing is necessary for the establishment, exercise, or defence of legal claims.</li>
+</ul>
+<h3>Right to Lodge a Complaint</h3>
+<ul>
+<li>Indonesian Users: You have the right to lodge a complaint with the competent supervisory authority in Indonesia responsible for personal data protection under the PDP Law 2022.</li>
+</ul>
+<ul>
+<li>Thai Users: You have the right to lodge a complaint with the Office of the Personal Data Protection Committee (PDPC) in Thailand where you believe your personal data has been processed in violation of the PDPA.</li>
+</ul>
+<h3>How to Exercise Your Rights</h3>
+<ul>
+<li>To exercise any of the rights described in this Section, please submit a written request to: privacy@time2eat.app</li>
+</ul>
+<p>Please include your full name, registered email address, and a clear description of the right you wish to exercise. We will respond to your request within thirty (30) calendar days. In complex cases, we may extend this period by a further thirty (30) days, and will notify you of any such extension. We may request additional information to verify your identity before processing your request.</p>
+<h2>COOKIES AND TRACKING TECHNOLOGIES</h2>
+<h3>Use of Cookies and SDKs</h3>
+<ul>
+<li>The Platform may use cookies, local storage, software development kits (SDKs), and similar tracking technologies to collect technical and usage data, maintain your session, and support analytics functions. Mobile applications typically use device-level identifiers and SDKs rather than browser cookies.</li>
+</ul>
+<h3>Types of Tracking Technologies</h3>
+<ul>
+<li>Essential Technologies: Necessary for the basic operation of the App, including session management and authentication. These cannot be disabled without disrupting core Platform functionality.</li>
+</ul>
+<ul>
+<li>Analytics Technologies: Used to collect data about how you use the App, including features accessed and session duration. This data is used to improve the Platform. Where consent is required under applicable law, we will request it before deploying analytics technologies.</li>
+</ul>
+<ul>
+<li>Third-Party SDKs: We may integrate third-party SDKs for analytics, push notifications, and crash reporting. These SDKs may collect device identifiers and usage data subject to the third-party provider&#x27;s privacy policy. We will disclose all material third-party SDKs in the App&#x27;s privacy nutrition label (Apple App Store) and data safety section (Google Play).</li>
+</ul>
+<h3>Managing Tracking Preferences</h3>
+<ul>
+<li>You may manage your tracking preferences through your device&#x27;s operating system settings, including by resetting your advertising identifier or disabling personalised tracking. For iOS devices, you may control App Tracking Transparency (ATT) permissions. For Android devices, you may opt out of personalised advertising through device settings.</li>
+</ul>
+<h2>CHILDREN&#x27;S PRIVACY</h2>
+<ul>
+<li>The Platform is not intended for use by individuals under the age of 18. We do not knowingly collect personal data from persons under 18 years of age. If you are a parent or guardian and believe that a minor has provided us with personal data without your consent, please contact us at privacy@time2eat.app and we will take prompt steps to delete such data. If we become aware that we have collected personal data from a child without appropriate consent, we will delete it from our systems as soon as practicable.</li>
+</ul>
+<h2>APP STORE PRIVACY COMPLIANCE</h2>
+<h3>Apple App Store — Privacy Nutrition Label</h3>
+<ul>
+<li>In accordance with Apple&#x27;s App Store privacy requirements, Time2Eat maintains an accurate and up-to-date App Privacy Nutrition Label that discloses all categories of data collected by the App, the purposes for which that data is used, and whether data is linked to your identity. The categories disclosed include, but are not limited to, health and fitness data (illness reports), identifiers, usage data, and diagnostics. This label is available on the App&#x27;s App Store product page.</li>
+</ul>
+<h3>Google Play — Data Safety Section</h3>
+<ul>
+<li>In accordance with Google Play&#x27;s Data Safety requirements, Time2Eat maintains an accurate Data Safety disclosure that identifies all personal data collected and processed by the App, how that data is used and shared, and the security practices applied to that data. The Data Safety section is available on the App&#x27;s Google Play product page and is updated whenever there is a material change to our data practices.</li>
+</ul>
+<h3>Health Data Disclosure</h3>
+<ul>
+<li>Because Community Reports may contain health-related data, this category is expressly disclosed in both the Apple App Privacy Nutrition Label and the Google Play Data Safety section. The disclosure confirms that health data is collected with explicit user consent and is used exclusively for the community food safety purpose of the Platform, in accordance with this Privacy Policy.</li>
+</ul>
+<h2>CHANGES TO THIS PRIVACY POLICY</h2>
+<ul>
+<li>We may update this Policy from time to time to reflect changes in our data practices, applicable law, or Platform features. When we do, we will update the &quot;Last Updated&quot; date, notify you by email or in-app notification, and where changes affect how we process your special category data, seek your explicit consent before those changes take effect. Your continued use of the Platform after any update constitutes your acceptance of the revised Policy.</li>
+</ul>
+<p>We encourage you to review this Policy periodically. Your continued use of the Platform after the effective date of any updated Policy constitutes your acceptance of the changes, to the extent permitted by applicable law.</p>
+<p>CONTACT US</p>
+<p>If you have any questions, concerns, or requests regarding this Privacy Policy or the processing of your personal data, please contact us at:</p>
+<p>Time2Eat — Data Protection Office</p>
+<p>Privacy &amp; Data Rights: privacy@time2eat.app</p>
+<p>Disputes &amp; Takedown: disputes@time2eat.app</p>
+<p>General Support: support@time2eat.app</p>
+<p>We aim to respond to all privacy-related requests and enquiries within fourteen (14) business days. Where a request is complex or involves a large volume of data, we may extend this period and will notify you accordingly.</p>
+<p>ACKNOWLEDGEMENT</p>
+<p>BY USING THE TIME2EAT PLATFORM, YOU ACKNOWLEDGE THAT YOU HAVE READ THIS PRIVACY POLICY IN ITS ENTIRETY, THAT YOU UNDERSTAND HOW YOUR PERSONAL DATA WILL BE COLLECTED, USED, AND PROCESSED, AND THAT YOU CONSENT TO SUCH PROCESSING AS DESCRIBED HEREIN. WHERE EXPLICIT CONSENT IS REQUIRED FOR THE PROCESSING OF SPECIAL CATEGORY DATA, INCLUDING HEALTH DATA, SUCH CONSENT WILL BE SEPARATELY SOUGHT AND RECORDED AT THE POINT OF COLLECTION.</p>
+<p>© Time2Eat. All rights reserved.</p>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>© 2025 Time2Eat · Made with ❤️ for travelers</p>
+    <p style="margin-top: 8px;">
+      <a href="/privacy-policy.html">Privacy Policy</a>
+      ·
+      <a href="/terms-of-service.html">Terms of Service</a>
+    </p>
+  </footer>
+
+</body>
+</html>
